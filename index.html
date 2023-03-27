@@ -4,9 +4,9 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Metody i narzędzia generowania kodu wykonywalnego</title>
+	<title>Języki i Techniki Programowania</title>
 
-	<meta name="description" content="MNGKW LAB">
+	<meta name="description" content="JTP LAB">
 	<meta name="author" content="Norbert Waszkowiak">
 
 	<meta name="apple-mobile-web-app-capable" content="yes">
@@ -29,7 +29,7 @@
 		<!-- Any section element inside of this container is displayed as a slide -->
 		<div class="slides">
 			<section data-background-gradient="linear-gradient(45deg, #333, #1f7520)">
-				<h2>Metody i narzędzia generowania kodu wykonywalnego</h2>
+				<h2>Języki i Techniki Programowania</h2>
 				<br slyle="height: 600px;" />
 				<p style="text-align: left;">ppor. mgr inż. Norbert Waszkowiak</p>
 				<div class="fragment" style="text-align: left;">
@@ -47,21 +47,19 @@
 				<section>
 					<small>
 						<ol>
-							<li>Każde przedstawione zadanie podlega ocenie 2-5;</li>
-							<li>W przypadku stwierdzenia niesamodzielności w wykonaniu pracy zostanie ona wliczona do
-								średniej
-								jako 0;</li>
-							<li>Ostateczna ocena z laboratoriów będzie wynikała ze średniej z wszystkich zadań
-								laboratoryjnych;
+							<li>Ostateczna ocena z laboratoriów będzie wynikiem egzaminu z cześci laboratoryjnej.
+								Za aktywność na laboratoraich i realizacje zadań student może otrzymać maksymalnie 20
+								punktów, które są wliczone do
+								puli punktów z egzaminu.
 							</li>
 							<li>Obecność na wszystkich zajęciach jest obowiązkową. Zaległości można usunąć uczestnicząc
 								w
 								zajęciach z inną grupą, po wcześniejszym poinformowaniu prowadzącego. W przypadku gdy
 								zajęcia z pozostałymi grupami już się odbyły, można odrobić zajęcia na konsultacjach.
 								Dopuszczalna liczba nieobecności to 1 spotkanie.</li>
-							<li>Zajęcia będą realizowane z wykorzystaniem systemu kontroli wersjii - git. Za termin
-								realizacji uznaję się godzinę ostatniego commit-u. Czas na wykonanie zadnia
-								to dwa tygodnie liczone od 23:59 dnia, w którym zostały zrealizowane zajęcia. Jeżeli
+							<li>Rozwiązania zadań z zajęć należy umiescić na platoformie MS Teams. Czas na wykonanie
+								zadnia
+								to tydzień liczone od 23:59 dnia, w którym zostały zrealizowane zajęcia. Jeżeli
 								termin
 								oddania zadania przypadnie po rozpoczęciu sesji
 								egzaminacyjnej. Wtedy za termin oddania zadania przyjmuje się 24h przed rozpoczęciem
@@ -70,283 +68,233 @@
 						</ol>
 					</small>
 				</section>
-				<section>
-					<small>
-						<ol start="6">
-							<li>Po otrzymaniu oceny końcowej od prowadzącego należy wrzucić swoje rozwiązanie na grupę
-								na
-								MS Teams w postaci czterech paczek zip, nazwanych zgodnie z przykładem:
-								<em>MNG_ZAD1_WASZKOWIAK_NORBERT_68604.zip</em>. Jest to warunek wpisania oceny do
-								systemu
-								USOS.
-							</li>
-							<li>
-								Ocenie podlegać będą:
-								<br />
-								<ul>
-									<li>Poprawność wykonania;</li>
-									<li>Zakres funkcjonalności rozwiązania;</li>
-									<li>Samodzielność;</li>
-									<li>Zastosowanie dobrych praktyk programistycznych;</li>
-									<li>Wykorzystanie systemu kontroli wersjii.</li>
-								</ul>
-							</li>
-						</ol>
-					</small>
-				</section>
 			</section>
 			<section data-background-gradient="linear-gradient(45deg, #c03090, #10a080)">
 				<section>
-					<h2>Wyrażenia regularne</h2>
+					<h2>Lab 1-2</h2>
 				</section>
 				<section>
-					<h3>A komu to potrzebne? A dlaczego? </h3>
-					<small style="text-align: left;">Wyrażenia regularne - (ang. regular expression, w skrócie regex lub
-						regexp) - wzorzec
-						opisujący łańcuch symboli. Teoria wyrażeń regularnych jest związana z teorią języków
-						regularnych.</small>
-					<small style="text-align: left;"> Wyrażenia regularne mogą określać zbiór pasujących łańcuchów, jak
-						również wyszczególniać istotne części łańcucha.</small>
-				</section>
-				<section>
-					<small style="text-align: left;">W praktyce znalazły bardzo szerokie zastosowanie, pozwalają bowiem
-						w
-						łatwy sposób opisywać wzorce tekstu, natomiast istniejące algorytmy w efektywny sposób
-						określają, czy podany ciąg znaków pasuje do wzorca lub wyszukują w tekście wystąpienia wzorca.
-					</small>
-					<small style="text-align: left;">Wyrażenia regularne w praktycznych zastosowaniach są zapisywane za
-						pomocą bogatszej i łatwiejszej w użyciu składni niż ta stosowana w rozważaniach teoretycznych.
-					</small>
-				</section>
-				<section>
-					<h3>Pokaz z objaśnieniem</h3>
-					<p><a href="https://regex101.com/r/1B5osM/1">Przykład z grupami dziekańskimi</a></p>
-					<img src="assets/ss-regex.png" style="height: 500px;" />
-					<p>Dane:</p>
-					<small style="height: 1px; font-size: 6px;">WCY18IX1S3 ; WCY19IG1S1 ; WCY19IJ1N1 ;
-						WCY19IJ1S1 ; WCY19IJ2S1 ; WCY19IJ3S1 ; WCY19IJ4S1 ; WCY19IL1S0 ; WCY19IT1S0 ; WCY19IW1S0 ;
-						WCY19KA1S0 ; WCY19KB1S0 ; WCY19KC1S0 ; WCY19KC1S1 ; WCY19KS1S0 ; WCY19KS1S1 ; WCY20IG1S1 ;
-						WCY20IJ1N1 ; WCY20IJ1S1 ; WCY20IJ2S1 ; WCY20IJ3S1 ; WCY20IM1S1 ; WCY20IX1S0 ; WCY20IX2S0 ;
-						WCY20IX3S0 ; WCY20IX4S0 ; WCY20IX5S0 ; WCY20IX6S0 ; WCY20IY1S1 ; WCY20IY2S1 ; WCY20IY3S1 ;
-						WCY20IY4S1 ; WCY20IY5S1 ; WCY20KA1S1 ; WCY20KC1S1 ; WCY20KX1S0 ; WCY20KX2S0 ; WCY20KX3S0 ;
-						WCY20KX4S0 ; WCY20KY1S1 ; WCY20KY2S1 ; WCY20KY3S1 ; WCY21E71N5 ; WCY21I*BDa ; WCY21I*BDb ;
-						WCY21I*SO ; WCY21I*Tpi ; WCY21IB1S4 ; WCY21IB2S4 ; WCY21IE1S4 ; WCY21IH1S4 ; WCY21IM1S4 ;
-						WCY21IV1S4 ; WCY21IX1N1 ; WCY21IX1S0 ; WCY21IX2N1 ; WCY21IX2S0 ; WCY21IX3S0 ; WCY21IX4S0 ;
-						WCY21IX5S0 ; WCY21IX6S0 ; WCY21IY1S1 ; WCY21IY2S1 ; WCY21IY3S1 ; WCY21IY4S1 ; WCY21K*SAa ;
-						WCY21K*SAb ; WCY21KB1S4 ; WCY21KB2S4 ; WCY21KB3S4 ; WCY21KC1S4 ; WCY21KS1S4 ; WCY21KS2S4 ;
-						WCY21KT1S4 ; WCY21KX1S0 ; WCY21KX2S0 ; WCY21KX3S0 ; WCY21KX4S0 ; WCY21KX5S0 ; WCY21KX6S0 ;
-						WCY21KY1S1 ; WCY21KY2S1 ; WCY22IA2aS6 ; WCY22IA2bS6 ; WCY22IB1N2 ; WCY22IB2N2 ; WCY22IB3aS6
-						; WCY22IB3bS6 ; WCY22IBOS6 ; WCY22IE3aS6 ; WCY22IE3bS6 ; WCY22IX1N1 ; WCY22IX1N5 ;
-						WCY22IX1S0 ; WCY22IX2N1 ; WCY22IX2N5 ; WCY22IX2S0 ; WCY22IX3N1 ; WCY22IX3S0 ; WCY22IX4S0 ;
-						WCY22IX5S0 ; WCY22IY1S1 ; WCY22IY2S1 ; WCY22IY3S1 ; WCY22IY4S1 ; WCY22IY5S1 ; WCY22IZ3aS6 ;
-						WCY22IZ3bS6 ; WCY22KX1S0 ; WCY22KX2S0 ; WCY22KX3S0 ; WCY22KX4S0 ; WCY22KX5S0 ; WCY22KX6S0 ;
-						WCY22KX7S0 ; WCY22KY1S1 ; WCY22KY2S1 ; WCY22SO3S6 ; WCY22X*BBDa ; WCY22X*BDa ; WCY22X*Fiz2a
-						; WCY22X*Fiz2b ; WCY22X*M1a ; WCY22X*M2a ; WCY22X*M2b ; WCY22X*Md1a ; WCY22X*TIiKa ;
-						WME19BC1S1 ; WME19BM1S1 ; WME19BO1S1 ; WME20BE1S1 ; WME20BM1S1 ; WME20BO1S1 ; WME21BM1S4 ;
-						WME21BX1S1 ; WME21BX2S1 ; WME21BX3S1 ; WME21BX4S1 ; WME22B1N5 ; WME22BX1S1 ; WME22BX2S1 ;
-						WME22BX3S1 ; WME22BX4S1</small>
-				</section>
-				<section>
-					<h3>Pokaz z objaśnieniem</h3>
-					<p><a href="https://regex101.com/r/HgaRAs/1">Przykład z cytatem</a></p>
-					<img src="assets/ss-regex-2.png" style="height: 500px;" />
-				</section>
-				<section>
-					<h3>Zadanie cz.1 👨‍💻</h3>
-					<small style="text-align: left; margin: 20px">Zaimplementuj klasę umożliwiająca na podstawie maila z
-						domeny WAT pozyskanie informacji o
-						właścicielu takich jak:
-						<br />
-						<ul>
-							<li>imię</li>
-							<li>nazwisko</li>
-							<li>czy jest studentem</li>
-							<li>czy jest mężczyzną</li>
-						</ul>
-						<br />
-						Klasa ma realizować testy jednostkowe, przedstawione w następnej sekcji. Dopisz dodatkowe 10
-						przypadków testowych.
-						Do końca trwania laboratoriów przesłać za pomocą <a
-							href="https://forms.office.com/r/cexRADC2at">formularza</a>
-						link do utworzonego <b>publicznego</b> repozytorium na github.com
-					</small>
-				</section>
-				<section>
-					<h3>Zadanie cz.2 👨‍💻</h3>
-					<pre style="font-size: 14px" data-id="code-animation">
-						<code class="hljs python" data-trim data-line-numbers="1-55|1|4-11|13-22|24-33|35-44|46-55|1-55"><script type="text/template">
-							import unittest
+					<h3>IDE</h3>
+					<img src="assets/IntelliJ_IDEA_Icon.svg" style="height: 300px;" />
+					<br />
 
-							class EmailExtractorTestCase(unittest.TestCase):
-								def setUp(self) -> None:
-									self.data = [
-									    # email, is_student, is_male, name, surname
-										["norbert.waszkowiak@wat.edu.pl", False, True, "Norbert", "Waszkowiak"],
-										["jan.kowalski@student.wat.edu.pl", True, True, "Jan", "Kowalski"],
-										["anna.nowak@student.wat.edu.pl", True, False, "Anna", "Nowak"],
-										["adrianna.abacka01@student.wat.edu.pl", True, False, "Adrianna", "Abacka"],
-										["katarzyna.babacka@wat.edu.pl", False, False, "Katarzyna", "Babacka"], ]
-							
-								def test_is_student(self):
-									for x in self.data:
-										with self.subTest():
-											# given
-											mail = x[0]
-											is_student = x[1]
-											# then
-											extractor = EmailExtractor(email)
-											# expect
-											self.assertEqual(is_student, extractor.is_student())
-							
-								def test_is_male(self):
-									for x in self.data:
-										with self.subTest():
-											# given
-											email = x[0]
-											is_male = x[2]
-											# then
-											extractor = EmailExtractor(email)
-											# expect
-											self.assertEqual(is_male, extractor.is_male())
-							
-									def test_get_name(self):
-										for x in self.data:
-											with self.subTest():
-												# given
-												email = x[0]
-												name = x[3]
-												# then
-												extractor = EmailExtractor(email)
-												# expect
-												self.assertEqual(name, extractor.get_name())
-							
-									def test_get_surname(self):
-										for x in self.data:
-											with self.subTest():
-												# given
-												email = x[0]
-												surname = x[4]
-												# then
-												extractor = EmailExtractor(email)
-												# expect
-												self.assertEqual(surname, extractor.get_surname())
-							
-							
+					<a href="https://www.jetbrains.com/help/idea/installation-guide.html#silent">
+						Instrukcja instalacji IntelliJ IDEA
+					</a>
+				</section>
+
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 1 cz.1 👨‍💻</h3>
+					<small style="text-align: left; margin-left: 20px;">
+						Wykonanie programu wymaga użycia stosu, na którym zapisywane są zmienne oraz ich wartości, tj.
+						wartości prymitywne i odnośniki do obiektów - same obiekty są na tzw. składzie. W tym zadaniu
+						zapisujemy stany stosu jako ciąg list par odpowiadający metodom na stosie i zmiennym
+						zadeklarowanym
+						i modyfikowanym w czasie ich wykonania. Lista par odpowiada metodzie na stosie, jest zapisana w
+						nawiasie kwadratowym, a każda para składa się z nazwy zmiennej oraz jej wartości.
+						<br />
+						Np. <em>[…, (x, 7),(y, true)]main</em> to stan, w którym podczas wykonania metody <em>main</em>
+						wartości zmiennych <em>x</em> i <em>y</em> są
+						odpowiednio równe 7 i true.
+						<br />
+						Przeanalizuj następującą klasę i podaj stany stosu po wykonaniu linii 3,
+						4, 5, 6, 7, 8 i 10.
+					</small>
+
+					<pre style="font-size: 14px" data-id="code-animation">
+						<code class="hljs java" data-trim><script type="text/template">
+							public class State {
+								public static void main(String[] args) {
+									int m = 2;
+									double d = 2.0;
+									d = m * d;
+									int n = 15 + (int) d; {
+										int k = 8;
+										d = d + k;
+									}
+									d = n / 4;
+									System.out.println(d);
+								}
+							}
 						</script>
 						</code>
 					</pre>
 				</section>
+
+				<section>
+					<h3>Debugger</h3>
+					<small style="text-align: left; margin: 20px;">(zwany również odpluskwiaczem) - narzędzie
+						wbudowane w IDE umożliwiające śledzenie stosu i
+						sterty (składu) w wybranych liniach kodu, poprzez zatrzymywanie działania programu w danej
+						linii.</small>
+					<small style="text-align: left; margin: 20px;" class="fragment">Program działający w trybie
+						debuggowania będzie wykonywał kolejne linijki kodu do momentu, w
+						którym nie trafi na „<b>breakpoint</b>”, czyli linię kodu zaznaczoną przez programistę. Po
+						zatrzymaniu
+						się programu w wybranej linii, IDE wyświetli aktualny stos zawierający zmienne aplikacji.
+						Użytkownik może zwolnić breakpoint, po czym program będzie wykonywany do napotkania kolejnego
+						breakpoint'a. </small>
+					<small style="text-align: left; margin: 20px;" class="fragment">W środowisku <b>Intellij
+							IDEA</b>aby wybrać linijkę kodu, w których program ma się zatrzymać
+						(breakpoint) należy kliknąć po prawej stronie od numeru linii. Linia zapali się na czerwono oraz
+						pojawi się czerwony okrąg</small>
+				</section>
+				<section>
+					<h3>Debugger</h3>
+					<img src="assets/debugger1.png">
+				</section>
+				<section>
+					<h3>Debugger</h3>
+					<img src="assets/debugger2.png">
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 1 cz.2 👨‍💻</h3>
+					<small style="text-align: left; margin-left: 20px;">
+						Podaj stany stosu wywołań i składu, gdy zostaną osiągnięte miejsca (1), (2), oraz (a) i (b).
+						<br />
+						Użyj debuggera(odpluskwiacza) do sprawdzenia otrzymanych wyników.
+						<br />
+						Uwaga: proszę pamiętać o parametrze args metody main.
+						<br />
+						Stos trzeba odpowiednio rozrysować, żeby było widać piętra odpowiadające metodom.
+					</small>
+
+					<pre style="font-size: 14px" data-id="code-animation">
+						<code class="hljs java" data-trim ><script type="text/template">
+							public class ValuePassing {
+								public static int changei(int i) {
+									int[] a = {i}; /* (a) */
+									++i; /* (b) */
+									return (i + a[0]);
+								}
+							
+								public static void main(String[] args) {
+									int i = 2; /* (1) */
+									System.out.println("Przed wykonaniem i ma wartość" + i);
+									int return_i = 0;
+									return_i = changei(i); /* (2) */
+									System.out.println("Changei daje w wyniku " + return_i);
+									System.out.println("Wartosc i po wynosi " + i);
+								}
+							}
+						</script>
+						</code>
+					</pre>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 2 👨‍💻</h3>
+					<small style="text-align: left; margin-left: 20px;">
+						Zaimplementuj klasy <em>Point</em> i <em>Line</em> odpowiadające odpowiednio punktom i liniom w
+						przestrzeni
+						dwuwymiarowej z odpowiednimi konstruktorami. Klasy te mają zawierać metodę <em>move</em>
+						pozwalającą na
+						przesuwanie punktów i linii o wektor oraz metodę <em>flip</em> pozwalającą na przerzucanie
+						symetryczne
+						względem początku układu współrzędnych. Należy napisać testy metod i konstruktorów. Ile
+						parametrów powinna mieć metoda <em>move</em>?
+
+						Wskazówka: w celu testowania należy zaimplementować odpowiednio metodę <em>toString()</em>
+						zwracającą dla
+						danego obiektu reprezentujący go string.</small>
+				</section>
+				<section>
+					<h3>Testy jednostkowe</h3>
+					<small style="text-align: left; margin: 20px;">
+						Na potrzeby przeprowadzania testów jednostkowych w Języku Java, przygotowano narzędzia
+						umożliwiające szybkie i sprawne pisanie testów jednostkowych nazwane Junit. Jest to biblioteka,
+						która przy wykorzystaniu <b>anotacji</b> umożliwia definiowanie testów oraz przygotowanie
+						obiektów do
+						ich wykonania.
+					</small>
+					<small class="fragment" style="text-align: left; margin: 20px;">
+						<b>Anotacja</b> - to część gramatyki języka, reprezentującą konkretną logikę, którą w czasie
+						budowania
+						projektu, wykonuje kompilator . Anotacje w Javie wstawia się w Javie zazwyczaj przed deklaracją
+						klas, metod i atrybutów. W przykładzie widocznym po prawej stronie wykorzystywana jest anotacja
+						<em>@Before</em> oraz <em>@Test</em>. Metoda poprzedzona anotacją <em>@Before</em> w klasie, w
+						której się znajduje zostanie wykonana przed wywołaniem testów. Anotacja <em>@Test</em>
+						poprzedzająca metodę, reprezentuje pojedynczy test jednostkowy.
+					</small>
+					<small class="fragment" style="text-align: left; margin: 20px;">
+						Wynik testu będzie pozytywny jeśli dla wyniku statycznej metody <em>assertEquals</em> wartości
+						obu
+						parametrów będą równe. W klasie <em>Assert</em> istnieją również inne metody umożliwiające
+						przeprowadzanie testów, np. <em>assertTrue</em>,<em>assertNotNull</em> itp..
+					</small>
+					<small class="fragment" style="text-align: left; margin: 20px;">
+						<b>Intellij IDEA</b> umożliwia wywoływanie pojedynczych testów lub wszystkich testów w klasie
+						poprzez
+						wciśnięcie odpowiednio zielonego przycisku przy numerze linii przy deklaracjach metod i przy
+						deklaracji klasy.
+					</small>
+				</section>
+				<section>
+					<h3>JUnit</h3>
+					<pre style="font-size: 16px" data-id="code-animation"><code class="hljs java" data-trim data-line-numbers="1-26|8|10-13|15-19|21-25">
+						import static org.junit.Assert.assertEquals;
+
+						import org.junit.Before;
+						import org.junit.Test;
+						
+						public class CalculatorTest {
+						
+							private Calculator calculator;
+						
+							@Before
+							public void init() {
+								calculator = new Calculator();
+							}
+						
+							@Test
+							public void testIfAddProperly() {
+								int result = calculator.add(4, 6);
+								assertEquals(10, result);
+							}
+						
+							@Test
+							public void testIfMultiplyProperly() {
+								int result = calculator.multiply(5, 5);
+								assertEquals(25, result);
+							}
+						}
+						
+					</code></pre>
+				</section>
 			</section>
 			<section data-background-gradient="linear-gradient(20deg, #650000, #29448b)">
 				<section>
-					<h2>ANTLR4</h2>
-				</section>
-				<section>
-					<h3>Co to jest i do czego służy?</h3>
-					<small>
-						ANTLR (ang. ANother Tool for Language Recognition) to narzędzie służące do tworzenia
-						kompilatorów oraz translatorów z opisu gramatyki zawierającego akcje w języku Java, C++, C# lub
-						Python.
-					</small>
-					<small>
-						Domyślnie ANTLR generuje lekser i parser w Javie, a plik z gramatyką ma rozszerzenie <i>.g4</i>.
-						Dostępne są również implementacje narzędzia w <a
-							href="https://www.antlr.org/download.html">innych
-							językach</a>.
-					</small>
-					<small>Drzewo syntaktyczne dla dowolnej gramatyki można wygenerować również za pomocą narzędzia
-						online <a href="http://lab.antlr.org/">ANTLR LAB</a>.</small>
-					<div style="margin-top: 20px;"></div>
-					<small>
-						<a ref="https://github.com/antlr/antlr4/tree/master/doc">Dokumentacja ANTLR4</a>
-					</small>
-				</section>
-				<section>
-					<h3>Gramatyka kalkulatora</h3>
-					<pre style="font-size: 18px" data-id="code-animation"><code data-trim data-line-numbers="1|3|4|6-10">
-						grammar Calculator;
-
-						expression: integralExpression ((PLUS | MINUS) integralExpression)*;
-						integralExpression: MINUS INT | INT;
-						
-						INT: [0-9]+ ;
-						PLUS: '+' ;
-						MINUS: '-' ;
-						INTEGRAL: 'cal';
-						WS : [ \t\r\n]+ -> skip ;
-					</code></pre>
-				</section>
-				<section>
-					<h3>Przydatne komendy</h3>
-					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs bash" data-trim data-line-numbers="1-2|4-5|7-8|10-12">
-						#pobranie antlr jako jar 
-						wget https://www.antlr.org/download/antlr-4.11.1-complete.jar
-						
-						#generowanie klas lexera i parsera
-						java -jar ./antlr-4.11.1-complete.jar Calculator.g4
-
-						#kompilowanie do bytecodu klas Calculator*
-						javac -cp ./antlr-4.11.1-complete.jar Calculator*.java
-
-						#podgląd drzewa syntaktycznego
-						java -cp .:antlr-4.11.1-complete.jar org.antlr.v4.gui.TestRig \
-							Calculator expression -tree -gui example.txt
-					</code></pre>
-				</section>
-				<section>
-					<h3>Fragment kodu</h3>
-					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java"  data-trim data-line-numbers="1-5|7-9|11-22">
-											
-						public static void main(String[] args) throws Exception {
-							CharStream charStreams = CharStreams.fromFileName("./example.txt");
-							Integer result = calc(charStreams);
-							System.out.println("Result = " + result);
-						}
-
-						public static Integer calc(String expression) {
-							return calc(CharStreams.fromString(expression));
-						}
-
-						public static Integer calc(CharStream charStream) {
-							CalculatorLexer lexer = new CalculatorLexer(charStream);
-							CommonTokenStream tokens = new CommonTokenStream(lexer);
-					
-							CalculatorParser parser = new CalculatorParser(tokens);
-							ParseTree tree = parser.expression();
-					
-							ParseTreeWalker walker = new ParseTreeWalker();
-							CalculatorMainListener mainListener = new CalculatorMainListener();
-							walker.walk(mainListener, tree);
-							return mainListener.getResult();
-						}
-					</code></pre>
+					<h2>Lab 3-4</h2>
+					<h3>TBA</h3>
 				</section>
 				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
-					<h3>Zadanie 2</h3>
+					<h3>Zadanie</h3>
 					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
-						Utworzyć publiczne
-						repozytorium na github.com. 
-						<br />Zmieścić link w
-						<a href="https://forms.office.com/r/KKds3hSuv4">formularzu.</a>
-						<br />
-						Opracować gramatyke kalkulatora, wygenerować Lexer
-						i Parser, a następnie zaimplementować jego
-						działanie rozszerzając wybraną klase np. *BaseListener lub *BaseVisitor.
-						<br />
-						Wymagana funkcjonalność to: dodawanie,
-						odejmowanie, mnożenie, dzielnie, potęgowanie,
-						pierwiastkowanie zgodnie z kolejnością wykonywania działań.
+
 					</small>
 				</section>
 			</section>
-			<section data-background-gradient="linear-gradient(45deg, #83be3c, #29448b)">
+			<section data-background-gradient="linear-gradient(30deg, #29558b, #3dd48b)">
 				<section>
-					<h2>TBA</h2>
+					<h2>Lab 5-6</h2>
+					<h3>TBA</h3>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie</h3>
+					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+
+					</small>
 				</section>
 			</section>
 			<section data-background-gradient="linear-gradient(60deg, #ae9852, #a3548b)">
 				<section>
-					<h2>TBA</h2>
+					<h2>Lab 7-10</h2>
+					<h3>TBA</h3>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie</h3>
+					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+
+					</small>
 				</section>
 			</section>
 
