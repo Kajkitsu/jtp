@@ -48,21 +48,21 @@
 					<small>
 						<ol>
 							<li>Ostateczna ocena z laboratoriów będzie wynikiem egzaminu z cześci laboratoryjnej.
-								Za aktywność na laboratoraich i realizacje zadań student może otrzymać maksymalnie 20
+								Za aktywność na laboratoriach i realizacje zadań student może otrzymać maksymalnie 20
 								punktów, które są wliczone do
 								puli punktów z egzaminu.
 							</li>
-							<li>Obecność na wszystkich zajęciach jest obowiązkową. Zaległości można usunąć uczestnicząc
+							<li>Obecność na wszystkich zajęciach jest obowiązkowa. Zaległości można usunąć uczestnicząc
 								w
-								zajęciach z inną grupą, po wcześniejszym poinformowaniu prowadzącego. W przypadku gdy
+								zajęciach z inną grupą po wcześniejszym poinformowaniu prowadzącego. W przypadku, gdy
 								zajęcia z pozostałymi grupami już się odbyły, można odrobić zajęcia na konsultacjach.
-								Dopuszczalna liczba nieobecności to 1 spotkanie.</li>
+								Dopuszczalna liczba nieobecności: 1.</li>
 							<li>Rozwiązania zadań z zajęć należy umiescić na platoformie MS Teams. Czas na wykonanie
-								zadnia
-								to tydzień liczone od 23:59 dnia, w którym zostały zrealizowane zajęcia. Jeżeli
+								zadania
+								to tydzień liczony od 23:59 dnia, w którym zostały zrealizowane zajęcia. Jeżeli
 								termin
 								oddania zadania przypadnie po rozpoczęciu sesji
-								egzaminacyjnej. Wtedy za termin oddania zadania przyjmuje się 24h przed rozpoczęciem
+								egzaminacyjnej, wtedy za termin oddania zadania przyjmuje się 24h przed rozpoczęciem
 								sesji
 								egzaminacyjnej.</li>
 						</ol>
@@ -125,7 +125,7 @@
 					<h3>Debugger</h3>
 					<small style="text-align: left; margin: 20px;">(zwany również odpluskwiaczem) - narzędzie
 						wbudowane w IDE umożliwiające śledzenie stosu i
-						sterty (składu) w wybranych liniach kodu, poprzez zatrzymywanie działania programu w danej
+						sterty (składu) w wybranych liniach kodu poprzez zatrzymywanie działania programu w danej
 						linii.</small>
 					<small style="text-align: left; margin: 20px;" class="fragment">Program działający w trybie
 						debuggowania będzie wykonywał kolejne linijki kodu do momentu, w
@@ -135,9 +135,9 @@
 						Użytkownik może zwolnić breakpoint, po czym program będzie wykonywany do napotkania kolejnego
 						breakpoint'a. </small>
 					<small style="text-align: left; margin: 20px;" class="fragment">W środowisku <b>Intellij
-							IDEA</b>aby wybrać linijkę kodu, w których program ma się zatrzymać
-						(breakpoint) należy kliknąć po prawej stronie od numeru linii. Linia zapali się na czerwono oraz
-						pojawi się czerwony okrąg</small>
+							IDEA</b>, aby wybrać linijkę kodu, w których program ma się zatrzymać
+						(breakpoint), należy kliknąć po prawej stronie od numeru linii. Linia zapali się na czerwono oraz
+						pojawi się czerwony okrąg.</small>
 				</section>
 				<section>
 					<h3>Debugger</h3>
@@ -150,11 +150,11 @@
 				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
 					<h3>Zadanie 1 cz.2 👨‍💻</h3>
 					<small style="text-align: left; margin-left: 20px;">
-						Podaj stany stosu wywołań i składu, gdy zostaną osiągnięte miejsca (1), (2), oraz (a) i (b).
+						Podaj stany stosu wywołań i składu, gdy zostaną osiągnięte miejsca (1), (2) oraz (a) i (b).
 						<br />
 						Użyj debuggera(odpluskwiacza) do sprawdzenia otrzymanych wyników.
 						<br />
-						Uwaga: proszę pamiętać o parametrze args metody main.
+						Uwaga: proszę pamiętać o parametrze <em>args</em> metody <em>main</em>.
 						<br />
 						Stos trzeba odpowiednio rozrysować, żeby było widać piętra odpowiadające metodom.
 					</small>
@@ -192,6 +192,7 @@
 						symetryczne
 						względem początku układu współrzędnych. Należy napisać testy metod i konstruktorów. Ile
 						parametrów powinna mieć metoda <em>move</em>?
+						<br/>
 
 						Wskazówka: w celu testowania należy zaimplementować odpowiednio metodę <em>toString()</em>
 						zwracającą dla
@@ -200,26 +201,26 @@
 				<section>
 					<h3>Testy jednostkowe</h3>
 					<small style="text-align: left; margin: 20px;">
-						Na potrzeby przeprowadzania testów jednostkowych w Języku Java, przygotowano narzędzia
+						Na potrzeby przeprowadzania testów jednostkowych w języku Java przygotowano narzędzia
 						umożliwiające szybkie i sprawne pisanie testów jednostkowych nazwane Junit. Jest to biblioteka,
 						która przy wykorzystaniu <b>anotacji</b> umożliwia definiowanie testów oraz przygotowanie
 						obiektów do
 						ich wykonania.
 					</small>
 					<small class="fragment" style="text-align: left; margin: 20px;">
-						<b>Anotacja</b> - to część gramatyki języka, reprezentującą konkretną logikę, którą w czasie
+						<b>Anotacja</b> - to część gramatyki języka, reprezentującąca konkretną logikę, którą w czasie
 						budowania
-						projektu, wykonuje kompilator . Anotacje w Javie wstawia się w Javie zazwyczaj przed deklaracją
+						projektu wykonuje kompilator. Anotacje w Javie wstawia się zazwyczaj przed deklaracją
 						klas, metod i atrybutów. W przykładzie widocznym po prawej stronie wykorzystywana jest anotacja
 						<em>@Before</em> oraz <em>@Test</em>. Metoda poprzedzona anotacją <em>@Before</em> w klasie, w
-						której się znajduje zostanie wykonana przed wywołaniem testów. Anotacja <em>@Test</em>
-						poprzedzająca metodę, reprezentuje pojedynczy test jednostkowy.
+						której się znajduje, zostanie wykonana przed wywołaniem testów. Anotacja <em>@Test</em>
+						poprzedzająca metodę reprezentuje pojedynczy test jednostkowy.
 					</small>
 					<small class="fragment" style="text-align: left; margin: 20px;">
-						Wynik testu będzie pozytywny jeśli dla wyniku statycznej metody <em>assertEquals</em> wartości
+						Wynik testu będzie pozytywny, jeśli dla wyniku statycznej metody <em>assertEquals</em> wartości
 						obu
 						parametrów będą równe. W klasie <em>Assert</em> istnieją również inne metody umożliwiające
-						przeprowadzanie testów, np. <em>assertTrue</em>,<em>assertNotNull</em> itp..
+						przeprowadzanie testów, np. <em>assertTrue</em>, <em>assertNotNull</em> itp..
 					</small>
 					<small class="fragment" style="text-align: left; margin: 20px;">
 						<b>Intellij IDEA</b> umożliwia wywoływanie pojedynczych testów lub wszystkich testów w klasie
