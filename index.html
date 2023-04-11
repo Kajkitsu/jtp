@@ -72,6 +72,7 @@
 			<section data-background-gradient="linear-gradient(45deg, #c03090, #10a080)">
 				<section>
 					<h2>Lab 1-2</h2>
+					<h3>Stos</h3>
 				</section>
 				<section>
 					<h3>IDE</h3>
@@ -136,7 +137,8 @@
 						breakpoint'a. </small>
 					<small style="text-align: left; margin: 20px;" class="fragment">W środowisku <b>Intellij
 							IDEA</b>, aby wybrać linijkę kodu, w których program ma się zatrzymać
-						(breakpoint), należy kliknąć po prawej stronie od numeru linii. Linia zapali się na czerwono oraz
+						(breakpoint), należy kliknąć po prawej stronie od numeru linii. Linia zapali się na czerwono
+						oraz
 						pojawi się czerwony okrąg.</small>
 				</section>
 				<section>
@@ -192,7 +194,7 @@
 						symetryczne
 						względem początku układu współrzędnych. Należy napisać testy metod i konstruktorów. Ile
 						parametrów powinna mieć metoda <em>move</em>?
-						<br/>
+						<br />
 
 						Wskazówka: w celu testowania należy zaimplementować odpowiednio metodę <em>toString()</em>
 						zwracającą dla
@@ -262,15 +264,441 @@
 					</code></pre>
 				</section>
 			</section>
-			<section data-background-gradient="linear-gradient(20deg, #650000, #29448b)">
+			<section data-background-gradient="linear-gradient(20deg, #650000, #29448b)" data-auto-animate
+				data-auto-animate-easing="cubic-bezier(0.770, 0.100, 0.175, 0.900)">
 				<section>
 					<h2>Lab 3-4</h2>
-					<h3>TBA</h3>
+					<h3>Kolekcje</h3>
+				</section>
+				<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.100, 0.175, 0.900)">
+					<div class="r-hstack justify-center">
+						<div class="r-vstack" style="background: rgba(0, 0, 0, 0.336);">
+							<div data-id="iterable" data-auto-animate-delay="0" class="fragment"
+								style="background: rgb(80, 17, 54); ; width: 250px; height: 100px; margin: 10px;">
+								<p style="font-size: 30px;" class="justify-center">java.lang.Iterable</p>
+							</div>
+							<div data-id="collection" data-auto-animate-delay="0" class="fragment"
+								style="background: rgb(68, 31, 117); width: 300px; height: 100px; margin: 10px;">
+								<p style="font-size: 30px;" class="justify-center">java.util.Collection</p>
+							</div>
+							<div class="r-hstack">
+								<div data-id="list" data-auto-animate-delay="0" class="fragment"
+									style="background: rgb(59, 57, 175); width: 160px; height: 100px; margin: 10px;">
+									<p style="font-size: 25px;" class="justify-center">java.util.List</p>
+								</div>
+								<div data-id="set" data-auto-animate-delay="0.1" class="fragment"
+									style="background: rgb(59, 57, 175); width: 160px; height: 100px; margin: 10px;">
+									<p style="font-size: 25px;" class="justify-center">java.util.Set</p>
+								</div>
+								<div data-id="queue" data-auto-animate-delay="0.2" class="fragment"
+									style="background: rgb(59, 57, 175); width: 160px; height: 100px; margin: 10px;">
+									<p style="font-size: 25px;" class="justify-center">java.util.Queue</p>
+								</div>
+							</div>
+						</div>
+						<div data-id="map" data-auto-animate-delay="0.2" class="fragment"
+							style="background: rgb(59, 57, 175); width: 160px; height: 100px; margin: 10px; margin-top: 250px;">
+							<p style="font-size: 25px;" class="justify-center">java.util.Map</p>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Collection&ltE&gt</h3>
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" data-trim data-line-numbers><script type="text/template">
+// dodaje nowy element do kolekcji
+boolean add(E element) 
+
+// dodaje do kolekcji wszystkie elementy z innej kolekcji
+boolean addAll(Collection<? extends E> c) 
+
+// usuwa wszystkie elementy z kolekcji
+void clear() 
+
+// sprawdza, czy kolekcja zawiera podany element
+boolean contains(Object o) 
+
+// sprawdza, czy kolekcja zawiera wszystkie elementy z innej kolekcji
+boolean containsAll(Collection<?> c) 
+
+// sprawdza, czy kolekcja jest pusta
+boolean isEmpty() 
+
+// zwraca iterator umożliwiający iterowanie po elementach kolekcji
+Iterator<E> iterator() 
+
+// usuwa podany element z kolekcji
+boolean remove(Object o) 
+
+// usuwa z kolekcji wszystkie elementy, które znajdują się w innej kolekcji
+boolean removeAll(Collection<?> c) 
+
+// pozostawia w kolekcji tylko te elementy, które znajdują się w innej kolekcji
+boolean retainAll(Collection<?> c) 
+
+// zwraca liczbę elementów w kolekcji
+int size() 
+					</script></code></pre>
+				</section>
+				<section>
+					<h3>List&ltE&gt</h3>
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" data-trim data-line-numbers><script type="text/template">
+// dodaje nowy element na wskazanej pozycji
+void add(int index, E element)
+
+// zwraca element o wskazanym indeksie
+E get(int index)
+
+// ustawia nową wartość dla elementu o wskazanym indeksie
+E set(int index, E element)
+
+// usuwa element o wskazanym indeksie z listy
+E remove(int index)
+
+// zwraca indeks pierwszego wystąpienia danego obiektu na liście
+int indexOf(Object o)
+
+// zwraca indeks ostatniego wystąpienia danego obiektu na liście
+int lastIndexOf(Object o)
+
+// zwraca widok listy zawierający elementy od podanego indeksu do
+// końcowego indeksu (bez niego)
+List<E> subList(int fromIndex, int toIndex)
+</script></code></pre>
+				</section>
+				<section>
+					<h3>ArrayList&ltE&gt</h3>
+					<small>
+						<ul>
+							<li>Jest to tablica dynamiczna, która może zwiększać swój rozmiar wraz ze wzrostem ilości
+								elementów.
+							</li>
+							<li>
+								W ArrayListach dostęp do elementów jest szybszy niż w LinkedListach, ponieważ elementy
+								są przechowywane w pamięci w
+								sposób ciągły, co pozwala na prostsze operacje odczytu i zapisu.
+							</li>
+							<li>
+								W ArrayListach usuwanie elementów z początku lub środka listy może być kosztowne
+								czasowo, ponieważ wymaga przesunięcia
+								wszystkich elementów za usuwanym.
+							</li>
+							<li>
+								Dostęp do elementów w ArrayListach jest O(1), a wyszukiwanie O(n).</li>
+						</ul>
+					</small>
+				</section>
+				<section>
+					<h3>LinkedList&ltE&gt</h3>
+					<small>
+						<ul>
+							<li>Jest to lista dwukierunkowa, w której każdy element przechowuje referencję do swojego
+								poprzednika i następnika.</li>
+							<li>W LinkedListach dodawanie i usuwanie elementów z początku i środka listy jest szybsze
+								niż w ArrayListach, ponieważ nie
+								wymaga przesuwania innych elementów.</li>
+							<li>W LinkedListach dostęp do elementów jest wolniejszy niż w ArrayListach, ponieważ
+								elementy nie są przechowywane w pamięci
+								w sposób ciągły, co wymaga dodatkowych operacji przeglądania listy w celu znalezienia
+								danego elementu.</li>
+							<li>Dostęp do elementów w LinkedListach jest O(n), a wyszukiwanie O(n).</li>
+						</ul>
+					</small>
+				</section>
+				<section>
+					<h3>Map&ltK, V&gt</h3>
+					<small>
+						Interfejs Map w języku Java reprezentuje strukturę danych, która przechowuje pary klucz-wartość.
+						Każdy klucz musi być
+						unikalny w ramach mapy, a wartość może być dowolnym obiektem. Interfejs Map zawiera wiele metod,
+						które umożliwiają
+						manipulowanie danymi w mapie, takie jak:
+					</small>
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" data-trim data-line-numbers><script type="text/template">
+																					// dodaje element o kluczu key i wartości value do mapy. Zwraca 
+																					// poprzednią wartość przypisaną do klucza, lub null jeśli klucz 
+																					// nie był wcześniej przypisany do żadnej wartości.
+																					void put(K key, V value)
+																					
+																					// zwraca wartość przypisaną do klucza key, lub null jeśli klucz nie 
+																					// istnieje w mapie.
+																					V get(Object key)
+																					
+																					// usuwa element o kluczu key z mapy i zwraca wartość, która była związana 
+																					// z tym kluczem, lub null jeśli klucz nie istnieje w mapie.
+																					V remove(Object key)
+																					
+																					// zwraca true, jeśli mapa zawiera klucz key, lub false w przeciwnym 
+																					// przypadku.
+																					boolean containsKey(Object key)
+																					
+																					//  zwraca true, jeśli mapa zawiera wartość value, lub false w przeciwnym 
+																					// przypadku.
+																					boolean containsValue(Object value)
+
+																					// zwraca liczbę elementów w mapie.
+																					int size()
+
+																					// zwraca true, jeśli mapa jest pusta, lub false w przeciwnym 
+																					// przypadku.
+																					boolean isEmpty()
+																					
+																					// zwraca zbiór kluczy zawartych w mapie.
+																					Set<K> keySet()
+																					
+																					// zwraca kolekcję wartości zawartych w mapie.
+																					Collection<V> values()
+																					
+																					// zwraca zbiór obiektów typu Map.Entry, reprezentujących pary 
+																					// klucz-wartość znajdujące się w mapie.
+																					Set<Map.Entry<K,V>> entrySet()
+																					</script></code></pre>
+				</section>
+				<section>
+					<h3>HashMap&ltE&gt, TreeMap&ltE&gt i LinkedHashMap&ltE&gt</h3>
+					<small>
+						<ul>
+							<li>HashMap to implementacja Map, która nie gwarantuje zachowania kolejności elementów.
+								Elementy
+								są przechowywane w taki
+								sposób, aby umożliwić szybki dostęp do nich za pomocą klucza. TreeMap natomiast
+								przechowuje
+								elementy w drzewie, które
+								jest posortowane według klucza. LinkedHashMap zachowuje kolejność elementów taką, jaką
+								miała
+								podczas dodawania.</li>
+							<li>HashMap ma złożoność czasową O(1) dla operacji dodawania, usuwania i wyszukiwania
+								elementów,
+								pod warunkiem, że funkcja
+								mieszająca (ang. hash function) działa dobrze i klucze są dobrze rozłożone w tablicy
+								mieszającej. TreeMap ma złożoność
+								czasową O(log n) dla tych samych operacji, a LinkedHashMap ma nieco gorszą złożoność
+								czasową
+								O(1) dla dodawania,
+								usuwania i wyszukiwania elementów w porównaniu do HashMap, ale lepszą niż TreeMap.</li>
+							<li>
+								W przypadku HashMap i LinkedHashMap, kolejność elementów nie jest gwarantowana i może
+								ulec
+								zmianie w czasie, natomiast
+								TreeMap gwarantuje posortowanie elementów według klucza.
+							</li>
+							<li>
+								LinkedHashMap pozwala na iterowanie po elementach w kolejności dodania, co może być
+								przydatne w niektórych sytuacjach.
+							</li>
+						</ul>
+					</small>
+				</section>
+				<section>
+					<h3>Set&ltE&gt</h3>
+					<small>Interfejs Set w języku Java reprezentuje kolekcję unikalnych elementów, bez określonej
+						kolejności. Oznacza to, że
+						elementy w Set nie mogą się powtarzać.</small>
+					<small>Interfejs Set&ltE&gt oprócz metod pochodzących z interfejsu Collection&ltE&gt posiada
+						wyłącznie metody wytwórze, np.:
+					</small>
+					<pre style="font-size: 18px" data-id="code-animation">
+	<code class="hljs java" data-trim data-line-numbers>
+		<script type="text/template">
+static <E> Set<E> of(E e1) 
+static <E> Set<E> of(E e1, E e2)
+static <E> Set<E> of(E... elements) 
+</script></code></pre>
+				</section>
+				<section>
+					<h3>HashSet&ltE&gt</h3>
+					<p>
+						reprezentuje zbiór nieuporządkowany, w którym elementy są przechowywane w tablicy
+						skrótów (hash table). Zbiór
+						ten nie gwarantuje, że elementy będą przechowywane w jakiejkolwiek określonej kolejności, ale
+						zapewnia, że każdy element
+						jest unikalny i posiada wyznaczalny hash code.
+					</p>
+				</section>
+				<section>
+					<h3>TreeSet&ltE&gt</h3>
+					<p>
+						reprezentuje zbiór uporządkowany, w którym elementy są przechowywane w drzewie
+						czerwono-czarnym. Zbiór ten
+						zapewnia, że elementy są przechowywane w porządku naturalnym (według relacji "mniejszy/równy"),
+						a każdy element jest
+						unikalny. TreeSet oferuje także dodatkowe metody, umożliwiające dostęp do pierwszego i
+						ostatniego elementu w zbiorze, a
+						także do elementów znajdujących się przed lub po danym elemencie.
+					</p>
+				</section>
+				<section>
+					<h3>LinkedHashSet&ltE&gt</h3>
+					<p>
+						reprezentuje zbiór uporządkowany, w którym elementy są przechowywane w
+						kolejności dodania. Zbiór ten
+						łączy funkcjonalności HashSet i List, oferując unikalność elementów oraz zachowanie kolejności
+						dodania.
+					</p>
+				</section>
+				<section>
+
+					<h3>Queue&ltE&gt</h3>
+					<small>
+						<a href="https://youtu.be/0V9Ua538jMI?t=223">Jak to wymawiać?</a>
+					</small>
+					<p>
+						Interfejs Queue w języku Java reprezentuje kolejkę, czyli strukturę danych, w której elementy są
+						przechowywane w
+						kolejności, w jakiej zostały dodane, a pobierane są w kolejności, w jakiej zostały dodane.
+						Kolejka jest strukturą typu
+						FIFO (First In, First Out), co oznacza, że element, który pierwszy został dodany do kolejki,
+						jest też jako pierwszy
+						pobierany z kolejki.
+					</p>
+				</section>
+				<section>
+					<h3>
+						Queue&ltE&gt
+					</h3>
+					<pre style="font-size: 18px" data-id="code-animation">
+					<code class="hljs java" data-trim data-line-numbers><script type="text/template">
+// dodaje element do kolejki. Zwraca true, jeśli element został pomyślnie dodany, a false, jeśli dodanie elementu jest niemożliwe (np. w przypadku pełnej kolejki).
+boolean add(E element)
+
+// dodaje element do kolejki. Zwraca true, jeśli element został pomyślnie dodany, a false, jeśli dodanie elementu jest niemożliwe (np. w przypadku pełnej kolejki).
+boolean offer(E element)
+
+// pobiera i usuwa element znajdujący się na początku kolejki. Rzuca wyjątek NoSuchElementException, jeśli kolejka jest pusta.
+E remove()
+
+// pobiera i usuwa element znajdujący się na początku kolejki. Zwraca null, jeśli kolejka jest pusta.
+E poll()
+
+// pobiera, ale nie usuwa element znajdujący się na początku kolejki. Rzuca wyjątek NoSuchElementException, jeśli kolejka jest pusta.
+E element()
+
+// pobiera, ale nie usuwa element znajdujący się na początku kolejki. Zwraca null, jeśli kolejka jest pusta.
+E peek()
+						</script></code></pre>
+				</section>
+				<section>
+					<h3>
+						Deueue&ltE&gt
+					</h3>
+					<small>
+						to skrót od "Double Ended Queue", czyli kolejkę dwukierunkową. Deque rozszerza interfejs Queue,
+						a więc dziedziczy po nim
+						wszystkie jego metody. Dodatkowo, Deque oferuje także metody umożliwiające dodawanie i usuwanie
+						elementów zarówno z
+						początku, jak i z końca kolejki. Dzięki temu, w przeciwieństwie do zwykłej kolejki, Deque
+						pozwala na dodawanie i
+						usuwanie elementów z dowolnego końca struktury.
+					</small>
+				</section>
+				<section>
+					<h3>BlockingQueue&ltE&gt</h3>
+					<small>
+						to interfejs, który oferuje metody blokujące. Metody te umożliwiają wątkowi czekanie na elementy
+						w kolejce, jeśli
+						kolejka jest pusta, lub czekanie na wolne miejsce w kolejce, jeśli kolejka jest pełna.
+						Najważniejsze metody to put(E e),
+						które umożliwia dodanie elementu do kolejki, ale jeśli kolejka jest pełna, to metoda zawiesza
+						wątek wywołujący put(E e)
+						aż do momentu, gdy miejsce w kolejce się zwolni. Metoda take() pobiera element z kolejki, ale
+						jeśli kolejka jest pusta,
+						to metoda zawiesza wątek wywołujący take() aż do momentu, gdy element pojawi się w kolejce.
+						Metody BlockingQueue są
+						często wykorzystywane w aplikacjach wielowątkowych, w których wątki muszą synchronizować swoje
+						działania.
+					</small>
+
+				</section>
+				<section>
+					<h3>TransferQueue&ltE&gt</h3>
+					<small>
+						to interfejs, który rozszerza interfejs BlockingQueue. TransferQueue oferuje dodatkowe metody
+						umożliwiające bezpieczne
+						przekazywanie elementów między wątkami.
+
+						W BlockingQueue wątek, który chce dodać element do kolejki lub pobrać element z kolejki, może
+						zostać zablokowany, jeśli
+						kolejka jest pełna lub pusta, odpowiednio. Natomiast w TransferQueue dodanie elementu do kolejki
+						może być zablokowane,
+						jeśli nie ma wątku, który czeka na element, który ma być dodany, a pobranie elementu z kolejki
+						może być zablokowane,
+						jeśli nie ma elementu, który ma zostać pobrany.
+
+						Metoda put() w BlockingQueue będzie blokować wątek, aż element zostanie dodany do kolejki,
+						natomiast metoda transfer() w
+						TransferQueue będzie blokować wątek, aż element zostanie pobrany z kolejki lub do kolejki
+						zostanie dodany wątek, który
+						będzie oczekiwał na element.
+					</small>
+				</section>
+				<section>
+					<h3>Repozytorium z testami kolekcji</h3>
+					<a href="https://github.com/Kajkitsu/Java_collection_tests">Link</a>
 				</section>
 				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
-					<h3>Zadanie</h3>
+					<h3>Zadanie 1</h3>
 					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
-
+						Rozważ użycie interfejsów Set, List, Queue i Map dla każdego z
+						następujących przypadków (zobacz specyfikację Java API). Ustal, który z
+						nich jest najbardziej odpowiedni oraz wyjaśnij, jak użyć go w
+						implementacji.
+						<ul>
+							<li>Pewna firma chce odpowiednio zapisać swoich klientów. Każdego miesiąca będą
+								oni losowo wybierani aby otrzymać mały upominek. Trzeba wybrać strukturę danych
+								odpowiednią dla losowania.</li>
+							<li>Ta sama firma chce ponazywać produkty imionami swoich pracowników. Każde
+								imię będzie użyte tylko raz. Trzeba przygotować listę imion.</li>
+							<li>W końcu firma ta zdecydowała się użyć tylko najczęściej występujących imion
+								swoich pracowników do nazwania produktów. Policzono ilu pracowników posiada
+								dane imię. Trzeba przygotować listę imion.</li>
+							<li>
+								Firma chce rozprowadzić bilety na mecze lokalnej drużyny siatkarskiej. Trzeba
+								skonstruować odpowiednią listę oczekujących.
+							</li>
+						</ul>
+					</small>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 2</h3>
+					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+						Napisz program, który będzie losował nazwiska klientów z listy (zobacz
+						punkt 1. poprzedniego zadania), a następnie je usuwał. Dokładniej,
+						zaimplementuj klasę Names z obiektowym
+						atrybutem names odpowiadającym wspomnianej liście i z obiektową
+						metodą choose(), która zwraca losowo wybrane nazwisko z
+						listy names usuwając je jednocześnie.
+					</small>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 3</h3>
+					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+						Napisz program, który będzie wybierał najczęściej występujące imiona
+						klientów z listy (zobacz punkt 3. zadania 1.), a następnie je
+						usuwał. Dokładniej, zaimplementuj klasę FrequentNames z obiektowym
+						atrybutem frequentNames i z obiektową metodą choose(), która zwraca
+						najczęściej występujące imię z listy frequentNames usuwając je
+						jednocześnie, oraz metodę insert(String name) wstawiającą imię do
+						danej listy
+					</small>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 4</h3>
+					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+						Zaimplementuj listy jednokierunkowe zawierające liczby całkowite
+						(typ int) bez użycia kolekcji. Lista ma się składać z kotwicy, tj. obiektu
+						klasy Anchor, oraz elementów, tj. obiektów klasy Element. Obiekty klasy
+						Element mają posiadać atrybut val typu int oraz opcjonalnie wskaźnik na
+						następny element listy, dokładniej obiekt klasy Element. Klasa Anchor ma
+						posiadać atrybut first typu Element wskazujący na pierwszy element listy
+						oraz metody:
+						<ul>
+							<li>insertAtTheFront(int x) - wstawiającą liczbę x na początek listy</li>
+							<li>insertAtTheEnd(int x) - wstawiającą liczbę x na koniec listy</li>
+							<li>removeFirst() - usuwającą pierwszy element listy</li>
+							<li>removeLast() - usuwającą ostatni element listy</li>
+							<li>toString() - zwracająca string reprezentujący daną listę</li>
+							<li>equals(Object o) - sprawdzającą, czy dwie listy zawierają dokładnie te same liczby w
+								tym samym porządku; jeśli tak, ma ona zwracać true, w przeciwnym wypadku false</li>
+						</ul>
 					</small>
 				</section>
 			</section>
