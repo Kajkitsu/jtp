@@ -754,14 +754,186 @@ E peek()
 			<section data-background-gradient="linear-gradient(30deg, #29558b, #3dd48b)">
 				<section>
 					<h2>Lab 5-6</h2>
-					<h3>TBA</h3>
+					<h3>Metody i atrybuty statyczne. Wyjątki</h3>
 				</section>
-				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
-					<h3>Zadanie</h3>
-					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+				<section>
+					<h3>Pola (atrybuty) statyczne</h3>
+					<small>Pola statyczne są współdzielone przez wszystkie obiekty klasy i są inicjowane tylko raz, gdy
+						klasa jest ładowana przez
+						maszynę wirtualną. W przeciwieństwie do pól niestatycznych, pola statyczne mogą być odczytywane
+						i modyfikowane bez
+						tworzenia instancji klasy. Są one często używane do przechowywania danych, które są wspólne dla
+						wszystkich obiektów
+						klasy, np. stałych lub liczników.</small>
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" data-trim data-line-numbers><script type="text/template">
+public class Counter {
+    private static int count = 0; // pole statyczne
 
+    public Counter() {
+        count++; // inkrementuj pole statyczne przy tworzeniu nowego obiektu
+    }
+
+    public static int getCount() { // metoda statyczna
+        return count;
+    }
+}
+</script></code></pre>
+				</section>
+				<section>
+					<h3>Metody statyczne</h3>
+					<small>
+						Meotdy statyczne to takie, które działają na poziomie klasy, a nie na poziomie obiektów. Metody
+						te są zwykle używane do wykonania
+						operacji, które nie wymagają dostępu do pól niestatycznych i które nie są związane z określonymi
+						instancjami klasy.
+					</small>
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" data-trim data-line-numbers><script type="text/template">
+public class MathUtil {
+    public static int factorial(int n) {
+        int result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+}
+										</script></code></pre>
+					<small>
+						W tym przykładzie metoda <b><em>factorial()</em></b> oblicza silnię liczby całkowitej i jest
+						zdefiniowana jako metoda statyczna. Możemy
+						jej używać bez tworzenia instancji klasy, <br /> np. <b><em>int result =
+								MathUtil.factorial(5);</em></b>
 					</small>
 				</section>
+				<section>
+					<h3>Wyjątki</h3>
+					<small>Wyjątki w języku Java to mechanizm pozwalający na obsługę błędów i wyjątkowych sytuacji
+						podczas wykonywania programu. W
+						momencie wystąpienia błędu w czasie działania programu, maszyna wirtualna Javy generuje wyjątek
+						(exception), który
+						przerywa normalny przepływ wykonywania kodu i przechodzi do bloku kodu obsługi wyjątku.</small>
+					<img src="assets/exceptions.png">
+
+				</section>
+				<section>
+					<h3>Obsługa wyjątków</h3>
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" data-trim data-line-numbers><script type="text/template">
+try {
+    // kod, który może rzucić wyjątek
+} catch (ExceptionType e) {
+    // kod obsługi wyjątku
+} finally {
+    // kod, który zostanie wykonany zawsze, 
+		// niezależnie od wystąpienia wyjątku
+}
+
+																				</script></code></pre>
+					<small>
+						Blok <em><b>try</b></em> zawiera kod, który może rzucić wyjątek, a blok <em><b>catch</b></em>
+						zawiera kod obsługi wyjątku, który zostanie wykonany tylko
+						wtedy, gdy wyjątek zostanie rzucony. Blok <em><b>finally</b></em> zawiera kod, który zostanie
+						wykonany zawsze, niezależnie od tego, czy
+						wyjątek został rzucony czy nie.
+					</small>
+				</section>
+				<section>
+					<h3>Propagacja wyjątków</h3>
+					<small>
+						Gdy wyjątek jest zgłaszany przez metodę, to metoda może albo obsłużyć wyjątek (przy użyciu bloku
+						<em><b>try-catch</b></em>), albo
+						przekazać wyjątek wyżej w stosie wywołań do wywołującej metodę. Jeśli wyjątek nie jest obsłużony
+						przez żadną metodę na
+						stosie wywołań, to program kończy działanie, a wyjątek jest wyświetlany w konsoli.
+					</small>
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" data-trim data-line-numbers><script type="text/template">
+								try {
+            try {
+                System.out.println("Chyba wszystko OK"); //instrukcja się nie wykona
+                throw new ParseException("Błąd parsowania", 1); // Tu mamy wyjątek (ParseException) - przerwanie bloku try
+            } catch (ClassCastException e) { // Nie pasuje
+                e.printStackTrace();
+            } catch (NumberFormatException e) { // Nie pasuje - przerywa blok try!!!
+                e.printStackTrace();
+            }
+        } catch (NullPointerException e) { // Nie pasuje
+            e.printStackTrace();
+        } catch (RuntimeException e) { // Nie pasuje
+            e.printStackTrace();
+        } catch (Exception e) { // Pasuje wykonanie bloku catch
+            System.out.println("O! to sie wykona");
+            e.printStackTrace();
+        }
+																																			</script></code></pre>
+				</section>
+				<section>
+					<h3>Deklarowanie własnych wyjątków</h3>
+					<small>TODO</small>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 1</h3>
+					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+						Zaimplementuj klasę Factorial (silnia) z metodą factorial(int x) liczącą silnię x. Jaką
+						sygnaturę powinna mieć ta
+						metoda.
+						<ol type="A">
+							<li>Zachowując tę sygnaturę, zmodyfikuj tę implementację tak, aby dla x &lt 0 metoda nie
+								zwracała wartości</li>
+							<li>
+								Zaimplementuj metodę factorial1, która dla liczb ujemnych będzie rzucać wyjątek
+								MyException. MyException ma bezpośrednio
+								rozszerzać Exception. Jak trzeba zmienić sygnaturę metody factorial?
+							</li>
+							<li>
+								Jaka jest różnica pomiędzy tym a poprzednim rodzajem wyjątków?
+							</li>
+							<li>
+								Przetestuj obie metody implementując metodę main tak, żeby w niej metody były sprawdzane
+								dla ciągu argumentów typu: -3,
+								-1, 0, 1, 2, 4, 5. Wskazówka: można użyć metody toString.
+							<li>
+								Użyj metody printStackTrace do pokazania zawartości stosu wywołań w momencie rzucania
+								wyjątku.
+							</li>
+						</ol>
+					</small>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 2</h3>
+					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+						Zaimplementuj klasę DoTrzechRazySztuka, która sczytuje z konsoli liczbę <em>float</em> i
+						wypisuje ją w postaci np. <em>„x = 1.2”</em>
+						(zobacz slajdy z pierwszego wykładu). Metoda ta powinna dopuszczać maksymalnie dwa błędy w typie
+						danych, np. jeśli
+						podczas pierwszej próby wpisany będzie string <em>„abc”</em>, to jest to błąd i metoda powinna
+						zażądać innej danej i tak
+						maksymalnie dwa razy. Metoda ma kończyć swoje wykonanie po pierwszym wprowadzeniu <em>float</em>
+						lub po trzech nieudanych
+						próbach.
+					</small>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 3</h3>
+					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+						Zaimplementuj klasy <em><b>Point</b></em>, <em><b>Line</b></em>, <em><b>Polygon</b></em>,
+						<em><b>Group</b></em>. Przedostatnia klasa ma implementować wielokąty wyznaczone przez pewną
+						liczbę punktów. Ostatnia klasa ma implementować grupy figur (jak w przypadku edytorów typu
+						PowerPoint). Wszystkie klasy
+						mają implementować interfejs <em><b>Figur</b></em> (lub klasę abstrakcyjną z abstrakcyjnymi
+						metodami min. <em><b>equals(Object o)</b></em> żeby wymusić
+						nadpisanie). Zaimplementuj również klasę <em><b>Group</b></em> grupująca figury i również
+						implementującą <em><b>Figure</b></em>. <em><b>Figure</b></em> ma posiadać
+						metody:
+						<br/>
+						<ol>
+							<li><em><b>move(double dx, double dy)</b></em> przesuwającą daną figurę</li>
+							<li><em><b>flip()</b></em> przerzucająca dana figurę</li>
+							<li><em><b>equals(Object o)</b></em> sprawdzającą, czy figury są równe</li>
+							<li><em><b>toString()</b></em> zwracająca łańcuch znaków (String) reprezentujący daną figurę
+							</li>
+						</ol>
+					</small>
+				</section>
+
 			</section>
 			<section data-background-gradient="linear-gradient(60deg, #ae9852, #a3548b)">
 				<section>
