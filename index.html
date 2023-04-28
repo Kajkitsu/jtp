@@ -303,6 +303,54 @@
 					</div>
 				</section>
 				<section>
+					<h3>Typ generyczny</h3>
+					<small style="margin-bottom: 10px;">Typ generyczny w Javie umożliwia tworzenie klas, interfejsów i
+						metod, które są parametryzowane typem. Oznacza to, że możemy utworzyć klasę lub metodę, która
+						będzie działać na różnych typach, a typ będzie określony w momencie tworzenia obiektu klasy lub
+						wywoływania metody.</small>
+					<small style="margin-bottom: 10px;">Typ generyczny definiuje się za pomocą parametru typu, który
+						jest umieszczany w nawiasach trójkątnych &lt&gt. Parametr typu może być dowolnym typem, w tym
+						klasą, interfejsem. Parametry typu pozwalają na tworzenie kodu, który jest bardziej ogólny i
+						elastyczny, ponieważ typy argumentów mogą być różne dla różnych wywołań klasy lub
+						metody.</small>
+					<small style="margin-bottom: 10px;">Użycie typów generycznych pozwala na uniknięcie rzutowania typów
+						i poprawia bezpieczeństwo typów, ponieważ typy argumentów są sprawdzane w czasie kompilacji. Typ
+						generyczny może być używany nie tylko w klasach, ale także w interfejsach i metodach.</small>
+					<small style="margin-bottom: 10px;">Przykładem klasy generycznej w Javie jest ArrayList&ltT&gt,
+						gdzie T oznacza typ elementów przechowywanych w liście. W momencie tworzenia obiektu ArrayList
+						możemy określić typ elementów, na przykład ArrayList&ltString&gt lub
+						ArrayList&ltInteger&gt.</small>
+				</section>
+				<section>
+					<h3>Typ generyczny</h3>
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" data-trim data-line-numbers><script type="text/template">
+						public class Box<T> {
+							private T content;
+						
+							public Box(T content) {
+								this.content = content;
+							}
+						
+							public T getContent() {
+								return content;
+							}
+						
+							public void setContent(T content) {
+								this.content = content;
+							}
+						}
+						</script></code></pre>
+
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" data-trim data-line-numbers><script type="text/template">
+							Box<Integer> intBox = new Box<>(42);
+							int intValue = intBox.getContent();
+							
+							Box<String> stringBox = new Box<>("Hello");
+							String stringValue = stringBox.getContent();
+						</script></code></pre>
+
+				</section>
+				<section>
 					<h3>Collection&ltE&gt</h3>
 					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" data-trim data-line-numbers><script type="text/template">
 // dodaje nowy element do kolekcji
@@ -404,90 +452,7 @@ List<E> subList(int fromIndex, int toIndex)
 						</ul>
 					</small>
 				</section>
-				<section>
-					<h3>Map&ltK, V&gt</h3>
-					<small>
-						Interfejs Map w języku Java reprezentuje strukturę danych, która przechowuje pary klucz-wartość.
-						Każdy klucz musi być
-						unikalny w ramach mapy, a wartość może być dowolnym obiektem. Interfejs Map zawiera wiele metod,
-						które umożliwiają
-						manipulowanie danymi w mapie, takie jak:
-					</small>
-					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" data-trim data-line-numbers><script type="text/template">
-																					// dodaje element o kluczu key i wartości value do mapy. Zwraca 
-																					// poprzednią wartość przypisaną do klucza, lub null jeśli klucz 
-																					// nie był wcześniej przypisany do żadnej wartości.
-																					void put(K key, V value)
-																					
-																					// zwraca wartość przypisaną do klucza key, lub null jeśli klucz nie 
-																					// istnieje w mapie.
-																					V get(Object key)
-																					
-																					// usuwa element o kluczu key z mapy i zwraca wartość, która była związana 
-																					// z tym kluczem, lub null jeśli klucz nie istnieje w mapie.
-																					V remove(Object key)
-																					
-																					// zwraca true, jeśli mapa zawiera klucz key, lub false w przeciwnym 
-																					// przypadku.
-																					boolean containsKey(Object key)
-																					
-																					//  zwraca true, jeśli mapa zawiera wartość value, lub false w przeciwnym 
-																					// przypadku.
-																					boolean containsValue(Object value)
 
-																					// zwraca liczbę elementów w mapie.
-																					int size()
-
-																					// zwraca true, jeśli mapa jest pusta, lub false w przeciwnym 
-																					// przypadku.
-																					boolean isEmpty()
-																					
-																					// zwraca zbiór kluczy zawartych w mapie.
-																					Set<K> keySet()
-																					
-																					// zwraca kolekcję wartości zawartych w mapie.
-																					Collection<V> values()
-																					
-																					// zwraca zbiór obiektów typu Map.Entry, reprezentujących pary 
-																					// klucz-wartość znajdujące się w mapie.
-																					Set<Map.Entry<K,V>> entrySet()
-																					</script></code></pre>
-				</section>
-				<section>
-					<h3>HashMap&ltE&gt, TreeMap&ltE&gt i LinkedHashMap&ltE&gt</h3>
-					<small>
-						<ul>
-							<li>HashMap to implementacja Map, która nie gwarantuje zachowania kolejności elementów.
-								Elementy
-								są przechowywane w taki
-								sposób, aby umożliwić szybki dostęp do nich za pomocą klucza. TreeMap natomiast
-								przechowuje
-								elementy w drzewie, które
-								jest posortowane według klucza. LinkedHashMap zachowuje kolejność elementów taką, jaką
-								miała
-								podczas dodawania.</li>
-							<li>HashMap ma złożoność czasową O(1) dla operacji dodawania, usuwania i wyszukiwania
-								elementów,
-								pod warunkiem, że funkcja
-								mieszająca (ang. hash function) działa dobrze i klucze są dobrze rozłożone w tablicy
-								mieszającej. TreeMap ma złożoność
-								czasową O(log n) dla tych samych operacji, a LinkedHashMap ma nieco gorszą złożoność
-								czasową
-								O(1) dla dodawania,
-								usuwania i wyszukiwania elementów w porównaniu do HashMap, ale lepszą niż TreeMap.</li>
-							<li>
-								W przypadku HashMap i LinkedHashMap, kolejność elementów nie jest gwarantowana i może
-								ulec
-								zmianie w czasie, natomiast
-								TreeMap gwarantuje posortowanie elementów według klucza.
-							</li>
-							<li>
-								LinkedHashMap pozwala na iterowanie po elementach w kolejności dodania, co może być
-								przydatne w niektórych sytuacjach.
-							</li>
-						</ul>
-					</small>
-				</section>
 				<section>
 					<h3>Set&ltE&gt</h3>
 					<small>Interfejs Set w języku Java reprezentuje kolekcję unikalnych elementów, bez określonej
@@ -628,6 +593,90 @@ E peek()
 						TransferQueue będzie blokować wątek, aż element zostanie pobrany z kolejki lub do kolejki
 						zostanie dodany wątek, który
 						będzie oczekiwał na element.
+					</small>
+				</section>
+				<section>
+					<h3>Map&ltK, V&gt</h3>
+					<small>
+						Interfejs Map w języku Java reprezentuje strukturę danych, która przechowuje pary klucz-wartość.
+						Każdy klucz musi być
+						unikalny w ramach mapy, a wartość może być dowolnym obiektem. Interfejs Map zawiera wiele metod,
+						które umożliwiają
+						manipulowanie danymi w mapie, takie jak:
+					</small>
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" data-trim data-line-numbers><script type="text/template">
+																					// dodaje element o kluczu key i wartości value do mapy. Zwraca 
+																					// poprzednią wartość przypisaną do klucza, lub null jeśli klucz 
+																					// nie był wcześniej przypisany do żadnej wartości.
+																					void put(K key, V value)
+																					
+																					// zwraca wartość przypisaną do klucza key, lub null jeśli klucz nie 
+																					// istnieje w mapie.
+																					V get(Object key)
+																					
+																					// usuwa element o kluczu key z mapy i zwraca wartość, która była związana 
+																					// z tym kluczem, lub null jeśli klucz nie istnieje w mapie.
+																					V remove(Object key)
+																					
+																					// zwraca true, jeśli mapa zawiera klucz key, lub false w przeciwnym 
+																					// przypadku.
+																					boolean containsKey(Object key)
+																					
+																					//  zwraca true, jeśli mapa zawiera wartość value, lub false w przeciwnym 
+																					// przypadku.
+																					boolean containsValue(Object value)
+
+																					// zwraca liczbę elementów w mapie.
+																					int size()
+
+																					// zwraca true, jeśli mapa jest pusta, lub false w przeciwnym 
+																					// przypadku.
+																					boolean isEmpty()
+																					
+																					// zwraca zbiór kluczy zawartych w mapie.
+																					Set<K> keySet()
+																					
+																					// zwraca kolekcję wartości zawartych w mapie.
+																					Collection<V> values()
+																					
+																					// zwraca zbiór obiektów typu Map.Entry, reprezentujących pary 
+																					// klucz-wartość znajdujące się w mapie.
+																					Set<Map.Entry<K,V>> entrySet()
+																					</script></code></pre>
+				</section>
+				<section>
+					<h3>HashMap&ltE&gt, TreeMap&ltE&gt i LinkedHashMap&ltE&gt</h3>
+					<small>
+						<ul>
+							<li>HashMap to implementacja Map, która nie gwarantuje zachowania kolejności elementów.
+								Elementy
+								są przechowywane w taki
+								sposób, aby umożliwić szybki dostęp do nich za pomocą klucza. TreeMap natomiast
+								przechowuje
+								elementy w drzewie, które
+								jest posortowane według klucza. LinkedHashMap zachowuje kolejność elementów taką, jaką
+								miała
+								podczas dodawania.</li>
+							<li>HashMap ma złożoność czasową O(1) dla operacji dodawania, usuwania i wyszukiwania
+								elementów,
+								pod warunkiem, że funkcja
+								mieszająca (ang. hash function) działa dobrze i klucze są dobrze rozłożone w tablicy
+								mieszającej. TreeMap ma złożoność
+								czasową O(log n) dla tych samych operacji, a LinkedHashMap ma nieco gorszą złożoność
+								czasową
+								O(1) dla dodawania,
+								usuwania i wyszukiwania elementów w porównaniu do HashMap, ale lepszą niż TreeMap.</li>
+							<li>
+								W przypadku HashMap i LinkedHashMap, kolejność elementów nie jest gwarantowana i może
+								ulec
+								zmianie w czasie, natomiast
+								TreeMap gwarantuje posortowanie elementów według klucza.
+							</li>
+							<li>
+								LinkedHashMap pozwala na iterowanie po elementach w kolejności dodania, co może być
+								przydatne w niektórych sytuacjach.
+							</li>
+						</ul>
 					</small>
 				</section>
 				<section>
