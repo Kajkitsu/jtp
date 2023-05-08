@@ -866,7 +866,7 @@ try {
 																																			</script></code></pre>
 				</section>
 				<section>
-					<h3>Deklarowanie własnych wyjątków</h3>
+					<h3>					<br style="height: 20px;"/></h3>
 					<small>Deklarowanie własnych wyjątków w Javie pozwala na obsługę wyjątków niestandardowych, czyli
 						takich, które nie są zdefiniowane w standardowej bibliotece Javy.</small>
 					<br style="margin-top: 20px;" />
@@ -879,24 +879,24 @@ try {
 				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
 					<h3>Zadanie 1</h3>
 					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
-						Zaimplementuj klasę Factorial (silnia) z metodą factorial(int x) liczącą silnię x. Jaką
+						Zaimplementuj klasę <em><b>Factorial</b></em> (silnia) z metodą <em><b>factorial(int x)</b></em> liczącą silnię x. Jaką
 						sygnaturę powinna mieć ta
 						metoda.
 						<ol type="A">
-							<li>Zachowując tę sygnaturę, zmodyfikuj tę implementację tak, aby dla x &lt 0 metoda nie
+							<li>Zachowując tę sygnaturę, zmodyfikuj tę implementację tak, aby dla <em><b>x &lt 0</b></em> metoda nie
 								zwracała wartości</li>
 							<li>
 								Zaimplementuj metodę factorial1, która dla liczb ujemnych będzie rzucać wyjątek
-								MyException. MyException ma bezpośrednio
-								rozszerzać Exception. Jak trzeba zmienić sygnaturę metody factorial?
+								<em><b>MyException</b></em>. <em><b>MyException</b></em> ma bezpośrednio
+								rozszerzać <em><b>Exception</b></em>. Jak trzeba zmienić sygnaturę metody <em><b>factorial</b></em>?
 							</li>
 							<li>
 								Jaka jest różnica pomiędzy tym a poprzednim rodzajem wyjątków?
 							</li>
 							<li>
 								Przetestuj obie metody implementując metodę main tak, żeby w niej metody były sprawdzane
-								dla ciągu argumentów typu: -3,
-								-1, 0, 1, 2, 4, 5. Wskazówka: można użyć metody toString.
+								dla ciągu argumentów typu:
+								<em><b>-3, -1, 0, 1, 2, 4, 5</b></em>. Wskazówka: można użyć metody <em><b>toString</b></em>.
 							<li>
 								Użyj metody printStackTrace do pokazania zawartości stosu wywołań w momencie rzucania
 								wyjątku.
@@ -907,13 +907,13 @@ try {
 				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
 					<h3>Zadanie 2</h3>
 					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
-						Zaimplementuj klasę DoTrzechRazySztuka, która sczytuje z konsoli liczbę <em>float</em> i
-						wypisuje ją w postaci np. <em>„x = 1.2”</em>
+						Zaimplementuj klasę <em><b>DoTrzechRazySztuka</b></em>, która sczytuje z konsoli liczbę <em><b>float</b></em> i
+						wypisuje ją w postaci np. <em><b>x = 1.2</b></em>
 						(zobacz slajdy z pierwszego wykładu). Metoda ta powinna dopuszczać maksymalnie dwa błędy w typie
 						danych, np. jeśli
-						podczas pierwszej próby wpisany będzie string <em>„abc”</em>, to jest to błąd i metoda powinna
+						podczas pierwszej próby wpisany będzie string <em><b>abc</b></em>, to jest to błąd i metoda powinna
 						zażądać innej danej i tak
-						maksymalnie dwa razy. Metoda ma kończyć swoje wykonanie po pierwszym wprowadzeniu <em>float</em>
+						maksymalnie dwa razy. Metoda ma kończyć swoje wykonanie po pierwszym wprowadzeniu <em><b>float</b></em>
 						lub po trzech nieudanych
 						próbach.
 					</small>
