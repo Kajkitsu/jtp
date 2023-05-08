@@ -867,7 +867,14 @@ try {
 				</section>
 				<section>
 					<h3>Deklarowanie własnych wyjątków</h3>
-					<small>TODO</small>
+					<small>Deklarowanie własnych wyjątków w Javie pozwala na obsługę wyjątków niestandardowych, czyli
+						takich, które nie są zdefiniowane w standardowej bibliotece Javy.</small>
+					<br style="margin-top: 20px;" />
+					<small>
+						Aby zadeklarować własny wyjątek w Javie, należy stworzyć nową klasę, która rozszerza klasę
+						<em><b>Exception</b></em> lub jedną z jej podklas. Należy zdefiniować konstruktor, który
+						przekazuje wiadomość do klasy bazowej za pomocą słowa kluczowego <em><b>super</b></em>.
+						Następnie można dodać dodatkowe pola i metody, które pomogą w obsłudze wyjątku.</small>
 				</section>
 				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
 					<h3>Zadanie 1</h3>
@@ -923,7 +930,7 @@ try {
 						nadpisanie). Zaimplementuj również klasę <em><b>Group</b></em> grupująca figury i również
 						implementującą <em><b>Figure</b></em>. <em><b>Figure</b></em> ma posiadać
 						metody:
-						<br/>
+						<br />
 						<ol>
 							<li><em><b>move(double dx, double dy)</b></em> przesuwającą daną figurę</li>
 							<li><em><b>flip()</b></em> przerzucająca dana figurę</li>
