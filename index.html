@@ -751,7 +751,7 @@ E peek()
 					</small>
 				</section>
 			</section>
-			<section data-background-gradient="linear-gradient(30deg, #29558b, #3dd48b)">
+			<section data-background-gradient="linear-gradient(30deg, #29558b, #2da169)">
 				<section>
 					<h2>Lab 5-6</h2>
 					<h3>Metody i atrybuty statyczne. Wyjątki</h3>
@@ -863,10 +863,10 @@ try {
             System.out.println("O! to sie wykona");
             e.printStackTrace();
         }
-																																			</script></code></pre>
+</script></code></pre>
 				</section>
 				<section>
-					<h3>					<br style="height: 20px;"/></h3>
+					<h3> <br style="height: 20px;" /></h3>
 					<small>Deklarowanie własnych wyjątków w Javie pozwala na obsługę wyjątków niestandardowych, czyli
 						takich, które nie są zdefiniowane w standardowej bibliotece Javy.</small>
 					<br style="margin-top: 20px;" />
@@ -879,16 +879,19 @@ try {
 				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
 					<h3>Zadanie 1</h3>
 					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
-						Zaimplementuj klasę <em><b>Factorial</b></em> (silnia) z metodą <em><b>factorial(int x)</b></em> liczącą silnię x. Jaką
+						Zaimplementuj klasę <em><b>Factorial</b></em> (silnia) z metodą <em><b>factorial(int x)</b></em>
+						liczącą silnię x. Jaką
 						sygnaturę powinna mieć ta
 						metoda.
 						<ol type="A">
-							<li>Zachowując tę sygnaturę, zmodyfikuj tę implementację tak, aby dla <em><b>x &lt 0</b></em> metoda nie
+							<li>Zachowując tę sygnaturę, zmodyfikuj tę implementację tak, aby dla <em><b>x &lt
+										0</b></em> metoda nie
 								zwracała wartości</li>
 							<li>
 								Zaimplementuj metodę factorial1, która dla liczb ujemnych będzie rzucać wyjątek
 								<em><b>MyException</b></em>. <em><b>MyException</b></em> ma bezpośrednio
-								rozszerzać <em><b>Exception</b></em>. Jak trzeba zmienić sygnaturę metody <em><b>factorial</b></em>?
+								rozszerzać <em><b>Exception</b></em>. Jak trzeba zmienić sygnaturę metody
+								<em><b>factorial</b></em>?
 							</li>
 							<li>
 								Jaka jest różnica pomiędzy tym a poprzednim rodzajem wyjątków?
@@ -896,7 +899,8 @@ try {
 							<li>
 								Przetestuj obie metody implementując metodę main tak, żeby w niej metody były sprawdzane
 								dla ciągu argumentów typu:
-								<em><b>-3, -1, 0, 1, 2, 4, 5</b></em>. Wskazówka: można użyć metody <em><b>toString</b></em>.
+								<em><b>-3, -1, 0, 1, 2, 4, 5</b></em>. Wskazówka: można użyć metody
+								<em><b>toString</b></em>.
 							<li>
 								Użyj metody printStackTrace do pokazania zawartości stosu wywołań w momencie rzucania
 								wyjątku.
@@ -907,13 +911,16 @@ try {
 				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
 					<h3>Zadanie 2</h3>
 					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
-						Zaimplementuj klasę <em><b>DoTrzechRazySztuka</b></em>, która sczytuje z konsoli liczbę <em><b>float</b></em> i
+						Zaimplementuj klasę <em><b>DoTrzechRazySztuka</b></em>, która sczytuje z konsoli liczbę
+						<em><b>float</b></em> i
 						wypisuje ją w postaci np. <em><b>x = 1.2</b></em>
 						(zobacz slajdy z pierwszego wykładu). Metoda ta powinna dopuszczać maksymalnie dwa błędy w typie
 						danych, np. jeśli
-						podczas pierwszej próby wpisany będzie string <em><b>abc</b></em>, to jest to błąd i metoda powinna
+						podczas pierwszej próby wpisany będzie string <em><b>abc</b></em>, to jest to błąd i metoda
+						powinna
 						zażądać innej danej i tak
-						maksymalnie dwa razy. Metoda ma kończyć swoje wykonanie po pierwszym wprowadzeniu <em><b>float</b></em>
+						maksymalnie dwa razy. Metoda ma kończyć swoje wykonanie po pierwszym wprowadzeniu
+						<em><b>float</b></em>
 						lub po trzech nieudanych
 						próbach.
 					</small>
@@ -942,17 +949,363 @@ try {
 				</section>
 
 			</section>
-			<section data-background-gradient="linear-gradient(60deg, #ae9852, #a3548b)">
+			<section data-background-gradient="linear-gradient(60deg, #606623, #753660)">
 				<section>
-					<h2>Lab 7-10</h2>
-					<h3>TBA</h3>
+					<h2>Lab 7-9</h2>
+					<h3>Operacja na kolekcjach z użyciem strumieni</h3>
 				</section>
-				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
-					<h3>Zadanie</h3>
-					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+				<section>
+					<h3>Programowanie funkcjonalne w Javie cz.1</h3>
+					<small style="margin: 20px;">
+						Programowanie funkcjonalne w Javie jest paradygmatem programowania, w którym skupiamy się na
+						tworzeniu programów poprzez składanie funkcji i operacji. W przeciwieństwie do programowania
+						proceduralnego, programowanie funkcjonalne kładzie nacisk na niemutowalność danych i unikanie
+						efektów ubocznych.</small>
+					<small style="margin: 20px;">Na przestrzeni czasu, wsparcie dla programowania funkcjonalnego w Javie
+						uległo znacznemu
+						rozwojowi. Wprowadzenie funkcji lambda w Javie 8 stanowiło przełomową zmianę, umożliwiając
+						programistom pisanie kodu w bardziej deklaratywny sposób. Funkcje lambda pozwalają na
+						przekazywanie funkcji jako argumentów do innych funkcji oraz tworzenie anonimowych funkcji, co
+						jest niezwykle przydatne w programowaniu funkcjonalnym.</small>
+					<small style="margin: 20px;">Dodatkowo, Javie 8 wprowadziło strumienie (streams), które umożliwiają
+						operacje sekwencyjne i
+						równoległe na zbiorach danych. Strumienie w Javie dostarczają wiele funkcji pośrednich i
+						końcowych, które można łączyć w celu manipulacji i przetwarzania danych w sposób bardziej
+						funkcyjny. Wykorzystanie strumieni pozwala programistom unikać pętli for i for-each, co
+						przyczynia się do bardziej czytelnego i modułowego kodu.</small>
+				</section>
+				<section>
+					<h3>Programowanie funkcjonalne w Javie cz.2</h3>
+					<small style="margin: 20px;">Kolejne wersje Javy wprowadzały również nowe funkcjonalności i
+						usprawnienia związane z
+						programowaniem funkcjonalnym. Java 9 wprowadziła prywatne metody interfejsów, które umożliwiają
+						bardziej czytelną i modułową implementację interfejsów funkcyjnych. Java 10 wprowadziła kolekcje
+						niezmiennych (immutable collections), które są zgodne z zasadami programowania funkcjonalnego.
+						Wersje Javy 11 i 12 skupiały się na optymalizacji wydajności operacji na strumieniach oraz
+						wprowadzały dodatkowe usprawnienia w dziedzinie programowania funkcyjnego.</small>
+					<small style="margin: 20px;">
+						Warto zwrócić uwagę na inny język programowania oparty o JVM: Scale. W której programowanie
+						funkcyjne jest jej integralną częścią. Scala oferuje wiele funkcji i konstrukcji, które
+						umożliwiają programowanie funkcyjne. Przykładem jest mechanizm funkcji anonimowych, który
+						pozwala na definiowanie funkcji bez nadawania im nazwy. Funkcje anonimowe są powszechnie
+						wykorzystywane w programowaniu funkcyjnym, umożliwiając przekazywanie ich jako argumentów do
+						innych funkcji oraz tworzenie wyrażeń lambda. Dodatkowo, w Scala istnieje wiele bibliotek i
+						frameworków, które wspierają programowanie funkcyjne w skali. Przykładem jest Apache Spark,
+						który został napisany w Scali i wykorzystuje jej funkcyjne podejście do przetwarzania dużych
+						zbiorów danych.
+					</small>
+				</section>
+				<section>
+					<h3>Optional&ltT&gt</h3>
+					<p>W podejściu funkcyjnym unikamy bezpośredniego używania referencji na
+						null. Jeśli chcemy zaznaczyć, że referencja jest opcjonalna, to używamy typu
+						Optional, który jest kontenerem dla obiektu dowolnego typu.</p>
+					<p>Referencja na typ Optional nigdy nie powinna być nullem, obiekty Optional
+						tworzymy przy pomocy statycznych metod</p>
+					<p> <a href="https://raw.githubusercontent.com/Kajkitsu/Java_collection_tests/master/src/test/java/org/example/OptionalTest.java">Testy wprowadzające do Optional</a>
+					</p>
+
+				</section>
+				<section>
+					<h3>Stream&ltT&gt</h3>
+					<small>Programowanie funkcyjne jest zorientowane na wysokopoziomowe
+						przetwarzanie danych, ze względu na powtarzające się wzorce
+						przetwarzania danych.
+					</small>
+					<small>
+						Strumień w Javie stanowi abstrakcję sekwencji danych, która może
+						być procedowana w dowolny sposób zgodnie z ustalonymi
+						operacjami, i w odpowiedniej kolejności.
+					</small>
+					<small>
+						Produktem przetwarzania strumienia może być:
+						<ul>
+							<li>pojedynczy obiekt - mówimy wtedy o agregacji lub redukcji
+								danych, np. największy element, łączna liczba elementów,
+								łańcuch znaków,</li>
+							<li>wiele obiektów, które niekoniecznie są tego samego typu co
+								oryginalny strumień, np. kolekcja, tablica.</li>
+						</ul>
+					</small>
+					<small>
+						Strumienie są <b>ewaluowane leniwie</b>, czyli nie wykonują żadnych
+						operacji tak długo, jak to nie jest wymagane.
 
 					</small>
 				</section>
+				<section>
+					<h3>Tworzenie strumieni</h3>
+					<small>W zależności od źródła danych strumienie mogą być skończone albo nieskończone.
+						<ul>
+							<li><b>Skończone strumienie</b> - bazują na typach o określonej liczbie elementów, takich
+								jak
+								tablice, kolekcje dowolnego typu, rekordy w bazie danych.
+								<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" ><script type="text/template">
+Stream<String> empty = Stream.empty();
+Stream<Integer> singleElement = Stream.of(1);
+Stream<Integer> fromArray = Stream.of(1, 2, 3);
+var list = List.of("a", "b", "c");
+Stream<String> fromList = list.stream();
+	</script></code></pre>
+							</li>
+							<li><b>Nieskończone strumienie</b> - generują dane w nieskończoność na podstawie
+								określonego wzorca.
+								<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" ><script type="text/template">
+IntStream intStream = new Random().ints();
+// przyjmuje lambdę typu Supplier
+Stream<Integer> zeroGenerator = Stream.generate(() -> 0);
+// przyjmuje dwa argumenty - wartość początkową, i lambdę typu UnaryOperator
+// zwracającą kolejny obiekt na podstawie poprzedniego
+Stream<Integer> evenNumbersGenerator = Stream.iterate(0, num -> num + 2);
+										</script></code></pre>
+							</li>
+						</ul>
+					</small>
+				</section>
+				<section>
+					<h3>Typu operacji na strumieniach</h3>
+					<small>
+						<ol>
+							<li><b>Utworzenie strumienia na podstawie źródła</b> - zawsze zwraca typ
+								Stream z odpowiednim typem w miejscu typu generycznego.
+								Wyjątkiem są strumienie specjalizowane dla typów prymitywnych.</li>
+							<li><b>Operacje pośrednie</b> - przeprowadzają pewnego rodzaju transformację
+								strumienia w nową postać zawierającą dodatkową operację. Operacje
+								tego typu łączą się w łańcuch, który może odfiltrowywać niechciane
+								obiekty, sortowaćje według ustalonego, oraz konwertować wartości w
+								obiektach. Dopóki nie zostanie ustalona operacja terminująca, żadna
+								operacja pośrednia się nie wykona.</li>
+							<li><b>Operacja terminująca</b> - produkuje ostateczny rezultat przetwarzania,
+								który może mieć postać zredukowaną (zagregowaną) do pojedynczego
+								obiektu lub tworzyć nową kolekcję, tablicę, itp.</li>
+						</ol>
+					</small>
+					<small style="margin: 20px;">Strumień kończy działanie po operacji terminującej i jego ponowne
+						użycie
+						jest wtedy niemożliwe.</small>
+					<small style="margin: 20px;">Operacje łączymy w jeden ciąg wywołań, co jest możliwe dzięki temu, że
+						każda operacja pośrednia zwraca typ Stream.</small>
+						<small> <a href="https://raw.githubusercontent.com/Kajkitsu/Java_collection_tests/master/src/test/java/org/example/StreamTest.java">Testy wprowadzające do Stream </a></small>
+					
+
+				</section>
+
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 1</h3>
+					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+						Większość problemów zapisanych w formie imperatywnej “jak to ma się stać” możemy zapisać przy
+						pomocy
+						podejścia funkcyjnego “co ma zostać zrobione”.
+						Przepisz poniższą funkcję, używając podejścia funkcyjnego. Wykorzystaj klasę IntStream do
+						wygenerowa‐
+						nia strumienia liczb.
+					</small>
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" ><script type="text/template">
+static int calculateSumOfSquaresInRange(int startInclusive, int endInclusive) {
+	if (endInclusive < startInclusive) {
+		throw new InvalidRangeException();
+	}
+
+	int sumOfSquares = 0;
+	for (int i = startInclusive; i <= endInclusive; i++) {
+		sumOfSquares += i * i;
+	}
+	return sumOfSquares;
+}
+</script></code></pre>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 2 cz.1</h3>
+					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+						Zaimplementuj metody pozwalające pobierać informacje na temat użytkowników z pewnego źródła. Do
+						implementacji wykorzystaj podejście funkcyjne z użyciem strumieni.
+					</small>
+					<small>Model użytkownika jest następujący:</small>
+
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" ><script type="text/template">record User(Long id, String firstName, String lastName,
+		    Integer age, List<Privilege> privileges) {
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof User user) {
+			Objects.equals(this.id, user.id);
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(this.id);
+	}
+}
+
+enum Privilege {
+	CREATE, UPDATE, READ, DELETE
+}
+</script></code></pre>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 2 cz.2</h3>
+					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+						Serwis do zaimplementowania jest następujący:
+					</small>
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" ><script type="text/template">interface UsersService {
+	List<User> sourceUsers = List.of(
+			new User(1L, "John", "Smith", 26, List.of(Privilege.UPDATE)),
+			new User(2L, "Greg", "Jonson", 30,
+					List.of(Privilege.UPDATE, Privilege.CREATE, Privilege.DELETE)),
+			new User(3L, "Alex", "Smith", 13, List.of(Privilege.DELETE)));
+
+	List<Privilege> getAllDistinctPrivileges();
+
+	Optional<User> getUpdateUserWithAgeHigherThan(int age);
+
+	Map<String, Long> getNumberOfLastNames();
+
+	List<User> sortByAgeDescAndNameAsc();
+	
+	Map<Integer, List<User>> groupByCountOfPrivileges();
+
+	Map<Privilege, List<User>> groupByPrivileges();
+}
+</script></code></pre>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 3 cz. 1</h3>
+					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+						Zaimplementuj klasyczną grę w wojnę.
+						Rozpocznij od wygenerowania talii 52 kart, zgodną z następującym modelem.
+					</small>
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" ><script type="text/template">interface UsersService {record GameCard(int rank, CardSuit cardSuit) {}
+
+enum CardSuit {
+	HEARTS,
+	TILES,
+	CLOVERS,
+	PIKES
+}</script></code></pre>
+					<small style="text-align: left; margin-left: 30px;" style="text-align: left;">
+						Użyj metody Collections.shuffle, aby spowodować przetasowanie kart. Następnie “rozłóż” karty na
+						dwie równe kupki do kolekcji reprezentujących talie dwóch graczy:
+					</small>
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" ><script type="text/template">interface UsersService {record GameCard(int rank, CardSuit cardSuit) {}
+LinkedList<GameCard> firstPlayerCards = new LinkedList<>();
+LinkedList<GameCard> secondPlayerCards = new LinkedList<>();</script></code></pre>
+					<small style="text-align: left; margin-left: 30px; margin-top: 20px" style="text-align: left;">
+						Dlaczego używamy LinkedList w implementacji? Czy możemy użyć innej?
+						Następnie zaimplementuj symulację rozgrywki zgodnie z następującym opisem:
+					</small>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3>Zadanie 3 cz. 2</h3>
+
+					<small style="text-align: left; margin-left: 30px; margin-top: 20px" style="text-align: left;">
+						Zawodnicy równocześnie wykładają po jednej karcie i porównują ich wartości (względem
+						starszeństwa – kolory nie odgrywają roli). Gracz mający kartę o wyższej wartości odbiera karty i
+						kładzie je pod spodem swojej talii.
+					</small>
+					<small style="text-align: left; margin-left: 30px; margin-top: 20px" style="text-align: left;">
+						Zawodnicy równocześnie wykładają po jednej karcie i porównują ich wartości (względem
+						starszeństwa – kolory nie odgrywają roli). Gracz mający kartę o wyższej wartości odbiera karty i
+						kładzie je pod spodem swojej talii.
+					</small>
+					<small style="text-align: left; margin-left: 30px; margin-top: 20px" style="text-align: left;">
+						Jeśli karty mają taką samą siłę (as na asa, król na króla, itp.), rozpętuje się wojna; należy
+						odkryć po
+						jednej karcie, położyć je koszulkami do góry na swoich kartach odkrytych, a następnie wyciągnąć
+						następną kartę, położyć odkryte na zakrytych kartach i wówczas są one porównywane. Karta o
+						wyższej wartości wygrywa, a zwycięzca wojny odbiera wszystkie karty wykorzystane w wojnie.
+						Proces jest powtarzany, jeśli w okresie wojny znowu nie można wyłonić zwycięzcy.
+						Wygrywa ten, kto pierwszy zabierze wszystkie karty przeciwnikowi.
+					</small>
+					<small style="text-align: left; margin-left: 30px; margin-top: 10px" style="text-align: left;">
+						Dodatkowo zliczaj liczbę tur, jakie zostały wykonane, aby wyłonić zwycięzcę. Czy to się uda?
+					</small>
+				</section>
+				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
+					<h3 style="color: #ce0707;">Zadanie domowe</h3>
+					<p style="text-align: left; margin-left: 30px; margin-top: 20px;">
+						Przed kolejnymi zajęciami przećwicz indywidualnie integrację z zewnętrznym API, która jest
+						opisana w kolejnej sekcji.
+					</p>
+				</section>
+
+			</section>
+			<!-- <section data-background-gradient="linear-gradient(60deg, #606623, #753660)">
+				<section>
+					<h2>Lab 9-10</h2>
+					<h3>Pokemony i inne stwory 👻</h3>
+				</section>
+				<section>
+					<h3>Interfejs API</h3>
+					<small style="margin: 10px;">Interfejs API (Application Programming Interface) to zbiór
+						zdefiniowanych reguł i protokołów,
+						które umożliwiają komunikację i integrację między różnymi programami lub aplikacjami. API
+						definiuje, jak programy mogą komunikować się ze sobą, jakie operacje można wykonać oraz jak
+						przekazywać dane.</small>
+
+					<small style="margin: 10px;">Interfejs API działa na zasadzie umożliwiania jednemu programowi
+						(nazywanemu klientem)
+						korzystanie z funkcji lub danych udostępnionych przez inny program (nazywanego serwerem). Klient
+						wysyła zapytania do serwera, a serwer odpowiada na te zapytania, udostępniając żądane informacje
+						lub wykonując żądane operacje.</small>
+					<small style="margin: 10px;">API może przyjmować różne formy, takie jak REST (Representational State
+						Transfer), SOAP (Simple Object Access Protocol) lub GraphQL. RESTful API jest obecnie jednym z
+						najpopularniejszych i szeroko stosowanych rodzajów interfejsów API. Oferuje ona zestaw zasad,
+						które definiują sposoby dostępu do zasobów za pomocą standardowych metod protokołu HTTP, takich
+						jak GET, POST, PUT i DELETE.
+					</small>
+					<small style="margin: 10px;">Interfejsy API są szeroko stosowane w dziedzinie programowania
+						aplikacji, zarówno na poziomie
+						internetowych usług, jak i lokalnych aplikacji. Przykłady zastosowań interfejsów API to
+						integracja zewnętrznych usług, jak płatności online czy serwisy mapowe, pobieranie i
+						udostępnianie danych z baz danych lub serwisów internetowych, automatyzacja zadań za pomocą
+						skryptów i wiele innych.</small>
+					<small>Dzięki interfejsom API programiści mogą tworzyć aplikacje, które wykorzystują funkcjonalności
+						lub dane udostępniane przez inne systemy, bez konieczności ponownego wynajdywania koła i
+						tworzenia wszystkiego od zera. Interfejsy API są kluczowe dla tworzenia zintegrowanych i
+						elastycznych systemów informatycznych.</small>
+				</section>
+				<section>
+					<h3>Publiczne API</h3>
+					<p>W internecie dostępnych jest szerege publicznych darmowych Rest API. Przykładowa lista znajduje
+						się <a href="https://github.com/public-apis/public-apis">tutaj</a>. Są one idealną możliwością
+						do przećwiczenia integrowania naszych aplikacji z zewnętrznymi serwisami.</p>
+				</section>
+				<section>
+					<h3>Zadanie</h3>
+					<p>Używając <a href="The Rick and Morty API">The Rick and Morty API</a> wypisz liste postaci, która
+						występowała razem z Ogórkowym Rickiem
+					</p>
+				</section>
+				<section>
+					<h4>Krok 1. - zapoznanie sie z dokumentacją API cz. 1</h3>
+						<small>Zaglądając do dokumentacji dostępnej <a
+								href="https://rickandmortyapi.com/documentation">tutaj</a> zauważamy dwa interfejsy API:
+							REST i GraphQL. Wybór trafia na REST. Interfejs ten posiada 3 róźne źródła zasobów:
+							postać(Character), lokacja(Location) i odcinek(Episode)</small>
+						<img src="assets/rm_zasoby.png" style="height: 500px;" />
+				</section>
+				<section>
+					<h4>Krok 1. - zapoznanie sie z dokumentacją API cz. 2</h3>
+						<small>Następnie analizując co zwracają nam dostępne zasoby. Stwiedzamy że musimy skorzystać z
+							"Character" aby dowiedzieć sie pod w jakim odcinku występował bohater. Nie znamy ID
+							postaci, wiec musimy wyfiltorwać liste wszystkich postaci. <a href="https://rickandmortyapi.com/documentation/#filter-characters">Link</a></small>
+							<small></small>
+
+						<ul>
+							<li>
+								<b>characters</b>
+							</li>
+						</ul>
+						<small>Zaglądając do dokumentacji dostępnej <a
+								href="https://rickandmortyapi.com/documentation">tutaj</a> zauważamy dwa interfejsy API:
+							REST i GraphQL. Wybór trafia na REST. Interfejs ten posiada 3 róźne źródła zasobów:
+							postać(Character), lokacja(Location) i odcinek(Episode)</small>
+						<img src="assets/rm_zasoby.png" style="height: 500px;" /> -->
+				</section>
+
+
 			</section>
 
 		</div>
