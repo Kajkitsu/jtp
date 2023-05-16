@@ -1356,8 +1356,8 @@ LinkedList<GameCard> secondPlayerCards = new LinkedList<>();</script></code></pr
 				</section>
 				<section data-auto-animate>
 					<h4 data-id="code-title">Krok 4. Pierwsze zapytanie</h4>
-					<pre style="font-size: 18px" data-id="code-animation">
-<code class="hljs java" >
+					<pre style="font-size: 16px" data-id="code-animation">
+<code class="hljs java" data-trim data-line-numbers>
 <script type="text/template">
 	//org/example/RickAndMortyFetcher.java
 	package org.example;
@@ -1420,64 +1420,181 @@ LinkedList<GameCard> secondPlayerCards = new LinkedList<>();</script></code></pr
 				</section>
 				<section data-auto-animate>
 					<h4 data-id="code-title">Krok 5. Data transfer object</h4>
-					<pre style="font-size: 18px" data-id="code-animation">
-<code class="hljs java" >
+					<pre style="font-size: 16px" data-id="code-animation">
+<code class="hljs java" data-trim data-line-numbers="4,14|42-46|53-61|64-73|75-95|82|12-51" >
 <script type="text/template">
-	//org/example/RickAndMortyFetcher.java
-	package org.example;
-	
-	import java.net.URI;
-	import java.net.http.HttpClient;
-	import java.net.http.HttpHeaders;
-	import java.net.http.HttpRequest;
-	import java.net.http.HttpResponse;
-	
-	public class RickAndMortyFetcher {
-		public static void main(String[] args) {
-			// Tworzenie instancji HttpClient
-			HttpClient httpClient = HttpClient.newHttpClient();
-	
-			// Adres URL API
-			String apiUrl = "https://rickandmortyapi.com/api/character/?name=pickle";
-	
-			// Tworzenie HttpRequest z adresem URL i parametrem
-			HttpRequest request = HttpRequest.newBuilder()
-					.uri(URI.create(apiUrl))
-					.GET()
-					.build();
-	
-			try {
-				// Wysłanie żądania GET i przechwycenie odpowiedzi
-				HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-	
-				// Pobranie statusu odpowiedzi
-				int statusCode = response.statusCode();
-	
-				// Pobranie nagłówków odpowiedzi
-				HttpHeaders headers = response.headers();
-	
-				// Pobranie ciała odpowiedzi
-				String responseBody = response.body();
-	
-				// Wyświetlanie statusu kodu
-				System.out.println("Status code: " + statusCode);
-	
-				// Wyświetlanie nagłówków odpowiedzi
-				System.out.println("Response headers: " + headers);
-	
-				// Wyświetlanie ciała odpowiedzi
-				System.out.println("Response body: " + responseBody);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-	}
+//org/example/RickAndMortyFetcher.java
+package org.example;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpHeaders;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
+public class RickAndMortyFetcher {
+
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+
+    public static void main(String[] args) {
+        // Tworzenie instancji HttpClient
+        HttpClient httpClient = HttpClient.newHttpClient();
+
+        // Adres URL API
+        String apiUrl = "https://rickandmortyapi.com/api/character/?name=pickle";
+
+        // Tworzenie HttpRequest z adresem URL i parametrem
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(apiUrl))
+                .GET()
+                .build();
+
+        try {
+            // Wysłanie żądania GET i przechwycenie odpowiedzi
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+
+            // Pobranie statusu odpowiedzi
+            int statusCode = response.statusCode();
+
+            // Pobranie nagłówków odpowiedzi
+            HttpHeaders headers = response.headers();
+
+            // Pobranie ciała odpowiedzi
+            String responseBody = response.body();
+
+            // Mapowanie resposne body do obiektu klasy CharacterResponseDTO
+            CharacterResponseDTO responseDTO = objectMapper.readValue(responseBody, CharacterResponseDTO.class);
+
+            // Wyświetlanie przekonwertowanej odpowiedzi
+            System.out.println("Response body: " + responseDTO.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+//org/example/CharacterResponseDTO.java
+package org.example;
+
+import java.util.List;
+
+public record CharacterResponseDTO(
+        InfoDTO info,
+        List<CharacterDTO> results) {
+}
+
+
+//org/example/InfoDTO.java
+package org.example;
+
+public record InfoDTO(
+        Integer count,
+        Integer pages,
+        String next,
+        String prev
+) {
+}
+
+//org/example/CharacterDTO.java
+package org.example;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.List;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record CharacterDTO(
+        Integer id,
+        String name,
+        String status,
+        String species,
+        String type,
+        String gender,
+        String image,
+        List<String> episode,
+        String url
+) {
+}
 </script>
 </code>
 </pre>
-					<small data-id="code-descrpiton">Nie ma potrzeby na tym etapie obsługi wszystkich pól, wystarczy
-						ogaraniczyć sie do tych co dotyczą naszego zadania.</small>
+					<small data-id="code-descrpiton">Nie ma potrzeby na tym etapie obsługi wszystkich pól zwracanych w formacie JSON. Wystarczy
+						ogaraniczyć sie do tych co dotyczą naszego zadania, ale należy dodać wtedy adnotacje
+						<em><b>@JsonIgnoreProperties(ignoreUnknown = true)</b></em> do tych klas, które ignorują
+						niektóre pola. Skorzystanie z klas <a
+							href="https://javastart.pl/baza-wiedzy/slownik/rekordy">rekordów (Records)</a> <em></em>
+						znacznie skraca zapis tych klas. Dodatkowo do pliku <em><b>build.gradle.kts</b></em> należy dodać zależność <em><b>implementation("com.fasterxml.jackson.core:jackson-databind:2.12.7.1")</b></em></small>
 				</section>
+								<section data-auto-animate>
+									<h4 data-id="code-title">Krok 6. Refactor RickAndMortyFetcher</h4>
+									<pre style="font-size: 16px" data-id="code-animation">
+								<code class="hljs java" data-trim data-line-numbers="" >
+								<script type="text/template">
+								//org/example/RickAndMortyFetcher.java
+								package org.example;
+								
+								import com.fasterxml.jackson.databind.ObjectMapper;
+								
+								import java.net.URI;
+								import java.net.http.HttpClient;
+								import java.net.http.HttpHeaders;
+								import java.net.http.HttpRequest;
+								import java.net.http.HttpResponse;
+								
+								public class RickAndMortyFetcher {
+								
+								    private static final ObjectMapper objectMapper = new ObjectMapper();
+								
+								    public static void main(String[] args) {
+								        // Tworzenie instancji HttpClient
+								        HttpClient httpClient = HttpClient.newHttpClient();
+								
+								        // Adres URL API
+								        String apiUrl = "https://rickandmortyapi.com/api/character/?name=pickle";
+								
+								        // Tworzenie HttpRequest z adresem URL i parametrem
+								        HttpRequest request = HttpRequest.newBuilder()
+								                .uri(URI.create(apiUrl))
+								                .GET()
+								                .build();
+								
+								        try {
+								            // Wysłanie żądania GET i przechwycenie odpowiedzi
+								            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+								
+								            // Pobranie statusu odpowiedzi
+								            int statusCode = response.statusCode();
+								
+								            // Pobranie nagłówków odpowiedzi
+								            HttpHeaders headers = response.headers();
+								
+								            // Pobranie ciała odpowiedzi
+								            String responseBody = response.body();
+								
+								            // Mapowanie resposne body do obiektu klasy CharacterResponseDTO
+								            CharacterResponseDTO responseDTO = objectMapper.readValue(responseBody, CharacterResponseDTO.class);
+								
+								            // Wyświetlanie przekonwertowanej odpowiedzi
+								            System.out.println("Response body: " + responseDTO.toString());
+								        } catch (Exception e) {
+								            e.printStackTrace();
+								        }
+								    }
+								}
+								
+								</script>
+								</code>
+								</pre>
+									<small data-id="code-descrpiton">Nie ma potrzeby na tym etapie obsługi wszystkich pól, wystarczy
+										ogaraniczyć sie do tych co dotyczą naszego zadania, ale należy dodać wtedy adnotacje
+										<em><b>@JsonIgnoreProperties(ignoreUnknown = true)</b></em> do tych klas, które ignorują
+										niektóre pola. Skorzystanie z klas <a href="https://javastart.pl/baza-wiedzy/slownik/rekordy">rekordów
+											(Records)</a> <em></em>
+										znacznie skraca zapis tych klas. Dodatkowo do pliku <em><b>build.gradle.kts</b></em> należy dodać zależność
+										<em><b>implementation("com.fasterxml.jackson.core:jackson-databind:2.12.7.1")</b></em></small>
+								</section>
 
 
 			</section>
