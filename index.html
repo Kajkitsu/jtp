@@ -1002,7 +1002,9 @@ try {
 						Optional, który jest kontenerem dla obiektu dowolnego typu.</p>
 					<p>Referencja na typ Optional nigdy nie powinna być nullem, obiekty Optional
 						tworzymy przy pomocy statycznych metod</p>
-					<p> <a href="https://raw.githubusercontent.com/Kajkitsu/Java_collection_tests/master/src/test/java/org/example/OptionalTest.java">Testy wprowadzające do Optional</a>
+					<p> <a
+							href="https://raw.githubusercontent.com/Kajkitsu/Java_collection_tests/master/src/test/java/org/example/OptionalTest.java">Testy
+							wprowadzające do Optional</a>
 					</p>
 
 				</section>
@@ -1085,8 +1087,10 @@ Stream<Integer> evenNumbersGenerator = Stream.iterate(0, num -> num + 2);
 						jest wtedy niemożliwe.</small>
 					<small style="margin: 20px;">Operacje łączymy w jeden ciąg wywołań, co jest możliwe dzięki temu, że
 						każda operacja pośrednia zwraca typ Stream.</small>
-						<small> <a href="https://raw.githubusercontent.com/Kajkitsu/Java_collection_tests/master/src/test/java/org/example/StreamTest.java">Testy wprowadzające do Stream </a></small>
-					
+					<small> <a
+							href="https://raw.githubusercontent.com/Kajkitsu/Java_collection_tests/master/src/test/java/org/example/StreamTest.java">Testy
+							wprowadzające do Stream </a></small>
+
 
 				</section>
 
@@ -1231,7 +1235,7 @@ LinkedList<GameCard> secondPlayerCards = new LinkedList<>();</script></code></pr
 				</section>
 
 			</section>
-			<!-- <section data-background-gradient="linear-gradient(60deg, #606623, #753660)">
+			<section data-background-gradient="linear-gradient(60deg, #606623, #753660)">
 				<section>
 					<h2>Lab 9-10</h2>
 					<h3>Pokemony i inne stwory 👻</h3>
@@ -1273,36 +1277,206 @@ LinkedList<GameCard> secondPlayerCards = new LinkedList<>();</script></code></pr
 						do przećwiczenia integrowania naszych aplikacji z zewnętrznymi serwisami.</p>
 				</section>
 				<section>
-					<h3>Zadanie</h3>
-					<p>Używając <a href="The Rick and Morty API">The Rick and Morty API</a> wypisz liste postaci, która
-						występowała razem z Ogórkowym Rickiem
+					<h3>Przykładowe Zadanie</h3>
+					<p>Używając <a href="The Rick and Morty API">The Rick and Morty API</a> opracuj program
+						umożliwiający sprawdzenie, którzy bohaterowie występowaliw tym samym odcinku co podany bohater,
+						np. Ogór Rick.
 					</p>
+					<img src="assets/Pickle_Rick.webp" style="height: 400px;" />
 				</section>
 				<section>
-					<h4>Krok 1. - zapoznanie sie z dokumentacją API cz. 1</h3>
-						<small>Zaglądając do dokumentacji dostępnej <a
-								href="https://rickandmortyapi.com/documentation">tutaj</a> zauważamy dwa interfejsy API:
-							REST i GraphQL. Wybór trafia na REST. Interfejs ten posiada 3 róźne źródła zasobów:
-							postać(Character), lokacja(Location) i odcinek(Episode)</small>
-						<img src="assets/rm_zasoby.png" style="height: 500px;" />
-				</section>
-				<section>
-					<h4>Krok 1. - zapoznanie sie z dokumentacją API cz. 2</h3>
-						<small>Następnie analizując co zwracają nam dostępne zasoby. Stwiedzamy że musimy skorzystać z
-							"Character" aby dowiedzieć sie pod w jakim odcinku występował bohater. Nie znamy ID
-							postaci, wiec musimy wyfiltorwać liste wszystkich postaci. <a href="https://rickandmortyapi.com/documentation/#filter-characters">Link</a></small>
-							<small></small>
+					<h4>Krok 1. Zapoznanie sie z dokumentacją API</h4>
+					<small>Pierwszym krokiem w tego typu zadaniach będzie przeanalizowanie dostępnych endpointów i
+						określnie z których należy skorzystać, aby osiągnąć podany cel.</small>
 
-						<ul>
-							<li>
-								<b>characters</b>
+					<small>Zaglądając do dokumentacji dostępnej <a
+							href="https://rickandmortyapi.com/documentation">tutaj</a> (do czego mocno zachęcam)
+						zauważamy dwa interfejsy API:
+						REST i GraphQL. Wybór trafia na REST.</small>
+				</section>
+				<section>
+					<h4>Krok 2. Określenie używanych endopointów</h4>
+					<small>Należy, wieć skorzystać z następujących endopointów, aby osiągnąć cel:
+						<ol style="margin-top: 10px;">
+							<li><a href="https://rickandmortyapi.com/documentation/#filter-characters"><b>Character/Filter
+										Character</b></a> - w pierwszym etapie wyszkujemy bohatera o podanej nazwie,
+								na poziomie programu musimy zapewnić aby tylko jeden wpis pasował do podanej nazwy.
+								W ten sposób uzyskamy informacje o bohaterze, jak i odcinkach w których występował.
+								<p style="margin-left: 40px; margin: 15px">
+									Ponieważ wszystkie operacje są typu GET, można podejrzeć ich wynik bezpośrednio
+									w
+									przeglądarce przechodząc pod wskazany adres. Wszystkie odpowiedzi są zwracane w
+									formacie JSON.
+								</p>
+								<p style="margin-left: 40px; margin: 15px">
+									Request, który nas nie satysfakcynuje, ponieważ zwraca więcej niż jednego
+									bohatera: <a
+										href="https://rickandmortyapi.com/api/character/?name=rick">https://rickandmortyapi.com/api/character/?name=rick</a>
+								</p>
+								<p style="margin-left: 40px; margin: 15px">
+									Request, który nas satysfakcynuje, ponieważ dokładnie jednego bohatera: <a
+										href="https://rickandmortyapi.com/api/character/?name=pickle">https://rickandmortyapi.com/api/character/?name=pickle</a>
+
+								</p>
 							</li>
-						</ul>
-						<small>Zaglądając do dokumentacji dostępnej <a
-								href="https://rickandmortyapi.com/documentation">tutaj</a> zauważamy dwa interfejsy API:
-							REST i GraphQL. Wybór trafia na REST. Interfejs ten posiada 3 róźne źródła zasobów:
-							postać(Character), lokacja(Location) i odcinek(Episode)</small>
-						<img src="assets/rm_zasoby.png" style="height: 500px;" /> -->
+							<li><a href="https://rickandmortyapi.com/documentation/#get-a-single-episode"><b>Episode/Single
+										Episode</b></a> - Wraz z odpowiedziami z poprzedniego requestu przesłane są
+								również ścieżki do odcinków, w których występował bohater.
+								<p style="margin-left: 40px; margin: 15px">Przykładowy request <a
+										href="https://rickandmortyapi.com/api/episode/24">https://rickandmortyapi.com/api/episode/24</a>
+								</p>
+							</li>
+							<li><a href="https://rickandmortyapi.com/documentation/#get-a-single-character"><b>Character/Single
+										Character</b></a> - Wraz z odpowiedziami z poprzedniego requestu przesłane
+								są również ścieżki do bohaterów, którzy występowali w tym samym odcinku.
+
+								<p style="margin-left: 40px; margin: 15px">Przykładowy request <a
+										href="https://rickandmortyapi.com/api/character/329">https://rickandmortyapi.com/api/character/329</a>
+								</p>
+							</li>
+						</ol>
+					</small>
+				</section>
+				<section>
+					<h4>Krok 3. Użycie zwracanych ścieżek do zasobów</h4>
+					<small>Zwracanie ścieżki do zasobu przez API jest powszechną praktyką w programowaniu aplikacji
+						internetowych. API (Interfejs programowania aplikacji) pozwala na komunikację między różnymi
+						systemami lub aplikacjami poprzez udostępnienie zestawu zdefiniowanych endpointów.</small>
+					<small>Referencje do powiązanych zasobów mogą być dostarczane w różnych formatach, takich jak adresy
+						URL, identyfikatory zasobów lub inne unikalne oznaczenia. Przykładowo, w odpowiedzi na żądanie
+						pobrania szczegółów użytkownika, odpowiedź mogłaby zawierać nie tylko informacje o samym
+						użytkowniku, ale także odnośniki do innych powiązanych zasobów, takich jak jego zamówienia,
+						komentarze lub profil publiczny.</small>
+					<small>Dzięki tym referencjom klient API może łatwo nawigować między różnymi zasobami, wykorzystując
+						dostępne odnośniki. Na przykład, klient może użyć adresu URL do zamówień, aby pobrać listę
+						zamówień danego użytkownika lub wywołać odpowiednie zapytanie w celu złożenia nowego zamówienia
+						dla danego użytkownika. </small>
+					<small>Zamiast budować ścieżki URL "od zera" skorzystamy właśnie z tych dostarczonych
+						referencji.</small>
+				</section>
+				<section data-auto-animate>
+					<h4 data-id="code-title">Krok 4. Pierwsze zapytanie</h4>
+					<pre style="font-size: 18px" data-id="code-animation">
+<code class="hljs java" >
+<script type="text/template">
+	//org/example/RickAndMortyFetcher.java
+	package org.example;
+	
+	import java.net.URI;
+	import java.net.http.HttpClient;
+	import java.net.http.HttpHeaders;
+	import java.net.http.HttpRequest;
+	import java.net.http.HttpResponse;
+	
+	public class RickAndMortyFetcher {
+		public static void main(String[] args) {
+			// Tworzenie instancji HttpClient
+			HttpClient httpClient = HttpClient.newHttpClient();
+	
+			// Adres URL API
+			String apiUrl = "https://rickandmortyapi.com/api/character/?name=pickle";
+	
+			// Tworzenie HttpRequest z adresem URL i parametrem
+			HttpRequest request = HttpRequest.newBuilder()
+					.uri(URI.create(apiUrl))
+					.GET()
+					.build();
+	
+			try {
+				// Wysłanie żądania GET i przechwycenie odpowiedzi
+				HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+	
+				// Pobranie statusu odpowiedzi
+				int statusCode = response.statusCode();
+	
+				// Pobranie nagłówków odpowiedzi
+				HttpHeaders headers = response.headers();
+	
+				// Pobranie ciała odpowiedzi
+				String responseBody = response.body();
+	
+				// Wyświetlanie statusu kodu
+				System.out.println("Status code: " + statusCode);
+	
+				// Wyświetlanie nagłówków odpowiedzi
+				System.out.println("Response headers: " + headers);
+	
+				// Wyświetlanie ciała odpowiedzi
+				System.out.println("Response body: " + responseBody);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+</script>
+</code>
+</pre>
+					<small data-id="code-descrpiton">Efektem tego kodu będze wypisanie w terminalu odpowiedzi z serwera
+						w formacie JSON. Nie jest to forma, która nasz zadowala, odwołanie sie do innych zasbów
+						(odcinków) jest problematyczne. Mamy dwie możliwości: skorzystać z biblioteki umożliwiającej
+						operowanie na JSONie za pomocą dostarczonych metod lub skorzystanie z DTO (<a
+							href="https://java-design-patterns.com/patterns/data-transfer-object/"> Data Transfer
+							Object</a>). Wybór trafia na DTO.</small>
+				</section>
+				<section data-auto-animate>
+					<h4 data-id="code-title">Krok 5. Data transfer object</h4>
+					<pre style="font-size: 18px" data-id="code-animation">
+<code class="hljs java" >
+<script type="text/template">
+	//org/example/RickAndMortyFetcher.java
+	package org.example;
+	
+	import java.net.URI;
+	import java.net.http.HttpClient;
+	import java.net.http.HttpHeaders;
+	import java.net.http.HttpRequest;
+	import java.net.http.HttpResponse;
+	
+	public class RickAndMortyFetcher {
+		public static void main(String[] args) {
+			// Tworzenie instancji HttpClient
+			HttpClient httpClient = HttpClient.newHttpClient();
+	
+			// Adres URL API
+			String apiUrl = "https://rickandmortyapi.com/api/character/?name=pickle";
+	
+			// Tworzenie HttpRequest z adresem URL i parametrem
+			HttpRequest request = HttpRequest.newBuilder()
+					.uri(URI.create(apiUrl))
+					.GET()
+					.build();
+	
+			try {
+				// Wysłanie żądania GET i przechwycenie odpowiedzi
+				HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+	
+				// Pobranie statusu odpowiedzi
+				int statusCode = response.statusCode();
+	
+				// Pobranie nagłówków odpowiedzi
+				HttpHeaders headers = response.headers();
+	
+				// Pobranie ciała odpowiedzi
+				String responseBody = response.body();
+	
+				// Wyświetlanie statusu kodu
+				System.out.println("Status code: " + statusCode);
+	
+				// Wyświetlanie nagłówków odpowiedzi
+				System.out.println("Response headers: " + headers);
+	
+				// Wyświetlanie ciała odpowiedzi
+				System.out.println("Response body: " + responseBody);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+</script>
+</code>
+</pre>
+					<small data-id="code-descrpiton">Nie ma potrzeby na tym etapie obsługi wszystkich pól, wystarczy
+						ogaraniczyć sie do tych co dotyczą naszego zadania.</small>
 				</section>
 
 
