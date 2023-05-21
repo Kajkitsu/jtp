@@ -42,7 +42,8 @@
 					<small>konsultacje online i stacjanarnie: po wcześniejszym umówieniu</small>
 				</div>
 			</section>
-			<section data-background-image="https://kajkitsu.github.io/jtp/assets/fire.jpg" data-background-opacity="0.5">
+			<section data-background-image="https://kajkitsu.github.io/jtp/assets/fire.jpg"
+				data-background-opacity="0.5">
 				<h2>Zasady oceniania</h2>
 				<section>
 					<small>
@@ -1681,9 +1682,9 @@ LinkedList<GameCard> secondPlayerCards = new LinkedList<>();</script></code></pr
 <script type="text/template">
 	package org.example;
 
+	import java.io.IOException;
 	import java.net.URI;
 	import java.net.http.HttpClient;
-	import java.net.http.HttpHeaders;
 	import java.net.http.HttpRequest;
 	import java.net.http.HttpResponse;
 	
@@ -1893,7 +1894,68 @@ public record CharacterDTO(
 					<h4 data-id="code-title">Krok 6. Użycie mappera</h4>
 					<small data-id="code-title-2"><em><b>org/example/RickAndMortyFetcher.java</b></em></small>
 					<pre style="font-size: 14px" data-id="code-animation">
-<code class="hljs java" data-trim data-line-numbers="14|21,33|21-31">
+								<code class="hljs java" data-trim data-line-numbers="14">
+								<script type="text/template">
+									package org.example;
+								
+									import com.fasterxml.jackson.databind.ObjectMapper;
+									import java.io.IOException;
+									import java.net.URI;
+									import java.net.http.HttpClient;
+									import java.net.http.HttpRequest;
+									import java.net.http.HttpResponse;
+									import java.util.Collections;
+									import java.util.List;
+									
+									public class RickAndMortyFetcher {
+										private static final HttpClient HTTP_CLIENT = HttpClient.newHttpClient();
+										private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+									
+										public static void main(String[] args) {
+											RickAndMortyFetcher fetcher = new RickAndMortyFetcher();
+											System.out.println(fetcher.fetchCharacterByName("pickle"));
+										}
+									
+										public List<CharacterDTO> fetchCharacterByName(String name) {
+											String apiUrl = "https://rickandmortyapi.com/api/character/?name=" + name;
+											String responseBody = fetch(apiUrl);
+											try {
+												CharacterResponseDTO responseDTO = OBJECT_MAPPER.readValue(responseBody, CharacterResponseDTO.class);
+												return responseDTO.results();
+											} catch (IOException e) {
+												e.printStackTrace();
+												return Collections.emptyList();
+											}
+										}
+									
+										private String fetch(String path) {
+											HttpRequest request = HttpRequest.newBuilder()
+													.uri(URI.create(path))
+													.GET()
+													.build();
+											try {
+												HttpResponse<String> response = HTTP_CLIENT.send(request, HttpResponse.BodyHandlers.ofString());
+												return response.body();
+											} catch (IOException | InterruptedException e) {
+												e.printStackTrace();
+												return null;
+											}
+										}
+									
+									}
+								</script>
+								</code>
+								</pre>
+					<small data-id="code-descrpiton">Wracamy do klasy <em><b>RickAndMortyFetcher</b></em>, w której
+						skorzystamy z mappera z biblioteki Jackson. Tworzenie <em><b>ObjectMapper</b></em> jest również
+						kosztowną operacją, dlatego tworzymy go jako <em><b>private static final</b></em>.
+					</small>
+				</section>
+				<section data-auto-animate>
+					<h4 data-id="code-title">Krok 6. Użycie mappera</h4>
+					<small data-id="code-title-2"><em><b>org/example/RickAndMortyFetcher.java</b></em></small>
+					<pre style="font-size: 14px" data-id="code-animation">
+<code class="hljs java" data-trim data-line-numbers="21,33|21-31">
 <script type="text/template">
 	package org.example;
 
@@ -1945,13 +2007,10 @@ public record CharacterDTO(
 </script>
 </code>
 </pre>
-					<small data-id="code-descrpiton">Wracamy do klasy <em><b>RickAndMortyFetcher</b></em>, w której
-						skorzystamy z mappera z biblioteki Jackson. Tworzenie <em><b>ObjectMapper</b></em> jest również
-						kosztowną operacją, dlatego tworzymy go jako <em><b>private static final</b></em>. Tworzymy nowa
-						metodę <em><b>fetchCharacterByName</b></em> i ograniczamy dostęp starej metody
-						<em><b>fetch</b></em>.
-						Metoda <em><b>readValue</b></em> z klasy <em><b>ObjectMapper</b></em> mapuje wartośc String
-						zapisaną w formacie JSON, na listę utoworzoną przez nas klasę <em><b>CharacterDTO</b></em>
+					Tworzymy nowa metodę <em><b>fetchCharacterByName</b></em> i ograniczamy dostęp starej metody
+					<em><b>fetch</b></em>. Metoda <em><b>readValue</b></em> z klasy <em><b>ObjectMapper</b></em> mapuje
+					wartośc String
+					zapisaną w formacie JSON, na listę utoworzoną przez nas klasę <em><b>CharacterDTO</b></em>
 					</small>
 				</section>
 				<section data-auto-animate>
