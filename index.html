@@ -1181,8 +1181,7 @@ enum Privilege {
 						Zaimplementuj klasyczną grę w wojnę.
 						Rozpocznij od wygenerowania talii 52 kart, zgodną z następującym modelem.
 					</small>
-					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" ><script type="text/template">interface UsersService {record GameCard(int rank, CardSuit cardSuit) {}
-
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" ><script type="text/template">
 enum CardSuit {
 	HEARTS,
 	TILES,
@@ -1193,7 +1192,7 @@ enum CardSuit {
 						Użyj metody Collections.shuffle, aby spowodować przetasowanie kart. Następnie “rozłóż” karty na
 						dwie równe kupki do kolekcji reprezentujących talie dwóch graczy:
 					</small>
-					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" ><script type="text/template">interface UsersService {record GameCard(int rank, CardSuit cardSuit) {}
+					<pre style="font-size: 18px" data-id="code-animation"><code class="hljs java" ><script type="text/template">
 LinkedList<GameCard> firstPlayerCards = new LinkedList<>();
 LinkedList<GameCard> secondPlayerCards = new LinkedList<>();</script></code></pre>
 					<small style="text-align: left; margin-left: 30px; margin-top: 20px" style="text-align: left;">
@@ -1203,12 +1202,6 @@ LinkedList<GameCard> secondPlayerCards = new LinkedList<>();</script></code></pr
 				</section>
 				<section data-transition="slide" data-background="#202020" data-background-transition="zoom">
 					<h3>Zadanie 3 cz. 2</h3>
-
-					<small style="text-align: left; margin-left: 30px; margin-top: 20px" style="text-align: left;">
-						Zawodnicy równocześnie wykładają po jednej karcie i porównują ich wartości (względem
-						starszeństwa – kolory nie odgrywają roli). Gracz mający kartę o wyższej wartości odbiera karty i
-						kładzie je pod spodem swojej talii.
-					</small>
 					<small style="text-align: left; margin-left: 30px; margin-top: 20px" style="text-align: left;">
 						Zawodnicy równocześnie wykładają po jednej karcie i porównują ich wartości (względem
 						starszeństwa – kolory nie odgrywają roli). Gracz mający kartę o wyższej wartości odbiera karty i
