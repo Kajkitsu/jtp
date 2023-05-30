@@ -954,20 +954,23 @@ try {
 				<section>
 					<h2>Lab 7-8</h2>
 					<h3>Operacja na kolekcjach z użyciem strumieni</h3>
+					<small style="font-size: 9px; margin-top: 40px; float: right;">
+						Materiały do tej sekcji zostały opracowe w oparciu o kurs <a href="https://juniorjavadev.kodolamacz.pl/">Junior Java Devloper (Kodołamacz)</a>
+					</small>
 				</section>
 				<section>
-					<h3>Programowanie funkcjonalne w Javie cz.1</h3>
+					<h3>Programowanie funkcyjne w Javie cz.1</h3>
 					<small style="margin: 20px;">
-						Programowanie funkcjonalne w Javie jest paradygmatem programowania, w którym skupiamy się na
+						Programowanie funkcyjne w Javie jest paradygmatem programowania, w którym skupiamy się na
 						tworzeniu programów poprzez składanie funkcji i operacji. W przeciwieństwie do programowania
-						proceduralnego, programowanie funkcjonalne kładzie nacisk na niemutowalność danych i unikanie
+						proceduralnego, programowanie funkcyjne kładzie nacisk na niemutowalność danych i unikanie
 						efektów ubocznych.</small>
-					<small style="margin: 20px;">Na przestrzeni czasu, wsparcie dla programowania funkcjonalnego w Javie
+					<small style="margin: 20px;">Na przestrzeni czasu, wsparcie dla programowania funkcyjnego w Javie
 						uległo znacznemu
 						rozwojowi. Wprowadzenie funkcji lambda w Javie 8 stanowiło przełomową zmianę, umożliwiając
 						programistom pisanie kodu w bardziej deklaratywny sposób. Funkcje lambda pozwalają na
 						przekazywanie funkcji jako argumentów do innych funkcji oraz tworzenie anonimowych funkcji, co
-						jest niezwykle przydatne w programowaniu funkcjonalnym.</small>
+						jest niezwykle przydatne w programowaniu funkcyjnym.</small>
 					<small style="margin: 20px;">Dodatkowo, Javie 8 wprowadziło strumienie (streams), które umożliwiają
 						operacje sekwencyjne i
 						równoległe na zbiorach danych. Strumienie w Javie dostarczają wiele funkcji pośrednich i
@@ -976,12 +979,12 @@ try {
 						przyczynia się do bardziej czytelnego i modułowego kodu.</small>
 				</section>
 				<section>
-					<h3>Programowanie funkcjonalne w Javie cz.2</h3>
+					<h3>Programowanie funkcyjne w Javie cz.2</h3>
 					<small style="margin: 20px;">Kolejne wersje Javy wprowadzały również nowe funkcjonalności i
 						usprawnienia związane z
-						programowaniem funkcjonalnym. Java 9 wprowadziła prywatne metody interfejsów, które umożliwiają
+						programowaniem funkcyjnmy. Java 9 wprowadziła prywatne metody interfejsów, które umożliwiają
 						bardziej czytelną i modułową implementację interfejsów funkcyjnych. Java 10 wprowadziła kolekcje
-						niezmiennych (immutable collections), które są zgodne z zasadami programowania funkcjonalnego.
+						niezmiennych (immutable collections), które są zgodne z zasadami programowania funkcyjnego.
 						Wersje Javy 11 i 12 skupiały się na optymalizacji wydajności operacji na strumieniach oraz
 						wprowadzały dodatkowe usprawnienia w dziedzinie programowania funkcyjnego.</small>
 					<small style="margin: 20px;">
@@ -1133,7 +1136,7 @@ static int calculateSumOfSquaresInRange(int startInclusive, int endInclusive) {
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof User user) {
-			Objects.equals(this.id, user.id);
+			return Objects.equals(this.id, user.id);
 		}
 		return false;
 	}
